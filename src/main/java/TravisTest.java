@@ -11,7 +11,8 @@
 public class TravisTest
 {
      public static int giveMeTen() {
-      System.out.println("blablabla");
+      System.out.println("huhuuhu");
+      System.out.println("huhuuhu");
     return 10;
       
   }
