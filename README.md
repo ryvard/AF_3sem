@@ -1,7 +1,7 @@
 # AF_3sem
 
 
-Build Status (Travis-ci.org)
+Build Status (Travis-ci.org)<br>
 [![Build Status](https://travis-ci.org/ryvard/AF_3sem.svg?branch=master)](https://travis-ci.org/ryvard/AF_3sem)
 
 
