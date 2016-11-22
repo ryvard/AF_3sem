@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app" ng-controller="httpController as httpCtrl">
     <head>
         <title>Start Page</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+        <script src="javascript.js" type="text/javascript"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Adventure Flights</h1>
+        
+        <div>{{httpCtrl.flightsFromDate}}</div>
     </body>
 </html>
