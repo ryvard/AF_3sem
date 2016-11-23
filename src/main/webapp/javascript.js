@@ -21,7 +21,7 @@ angular.module('app', [])
                 var httpFactory = {};
 
                 httpFactory.getFlights = function () {
-                    var url = 'http://airline-plaul.rhcloud.com/api/flightinfo/CPH/2017-01-20T00:00:00.000Z/1';
+                    var url = 'http://airline-plaul.rhcloud.com/api/flightinfo/CPH/2017-01-20/1';
                     console.log(url);
                     return $http.get(url);
                 };
