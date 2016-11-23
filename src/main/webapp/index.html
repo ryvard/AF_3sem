@@ -9,6 +9,30 @@
     <body>
         <h1>Adventure Flights</h1>
         
-        <div>{{flightsFromDate}}</div>
+        <div>
+            <h3>Flights from {{airlineInfo.airline}}</h3>
+            <table>
+                <tr>
+                    <th>Airline</th>
+                    <th>Date</th>
+                    <th>IATA</th>
+                    <th>Depart</th>
+                    <th>duration</th>
+                    <th>Arrival</th>
+                    <th>IATA</th>
+                    <th>Price</th>
+                </tr>
+                <tr ng-repeat="info in airlineInfo.flights">
+                    <td>{{airlineInfo.airline}}</td>
+                    <td>{{info.date | dateFilter}}</td>
+                    <td>{{info.origin}}</td>
+                    <td>{{info.date | timeFilter}}</td>
+                    <td>{{info.traveltime}}</td>
+                    <td></td>
+                    <td>{{info.destination}}</td>
+                    <td>{{info.totalPrice}}</td>
+                </tr>
+            </table>
+        </div>
     </body>
 </html>

@@ -4,31 +4,48 @@ angular.module('app', [])
         .controller('httpController', ['$scope', '$http', function ($scope, $http) {
 
 //                var self = this;
-                $scope.flightsFromDate;
-                
-                $http.get('http://airline-plaul.rhcloud.com/api/flightinfo/CPH/2017-01-20T00:00:00.000Z/1').then(function(response) {
-                    
-                    $scope.flightsFromDate = response.data.flights;
-                    
-                }, function(error) {
-                    
-                    
+                //$scope.flightsFromDate;
+                $scope.airlineInfo;
+
+                $http.get('http://airline-plaul.rhcloud.com/api/flightinfo/CPH/2017-01-20T00:00:00.000Z/1').then(function (response) {
+                    $scope.airlineInfo = response.data;
+//                    $scope.flightsFromDate = response.data.flights;
+
+                }, function (error) {
+
+
                 });
 
-            }]);
+            }])
+        .filter('dateFilter', function () {
+            return function (date) {
+                var dateSplit = date.split("T")
+                console.log(dateSplit[0]);
+                return dateSplit[0];
+            }
+        })
+        .filter('timeFilter', function () {
+            return function (date) {
+                var dateSplit = date.split("T")
+                var timeSplit = dateSplit[1].split(":")
+                var time = timeSplit[0]+":"+timeSplit[1];
+                console.log(time);
+                return time;
+            }
+        });
 
 /*
-        .factory('httpFactory', ['$http', function ($http) {
-
-                var httpFactory = [];
-
-                httpFactory.getFlights = function () {
-                    var url = 'http://airline-plaul.rhcloud.com/api/flightinfo/CPH/2017-01-20/1';
-                    console.log(url);
-                    return $http.get(url);
-                };
-
-                return httpFactory;
-
-            }]);
-            */
+ .factory('httpFactory', ['$http', function ($http) {
+ 
+ var httpFactory = [];
+ 
+ httpFactory.getFlights = function () {
+ var url = 'http://airline-plaul.rhcloud.com/api/flightinfo/CPH/2017-01-20/1';
+ console.log(url);
+ return $http.get(url);
+ };
+ 
+ return httpFactory;
+ 
+ }]);
+ */
