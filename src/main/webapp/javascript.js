@@ -1,24 +1,26 @@
 'use strict';
 angular.module('app', [])
 
-        .controller('httpController', ['httpFactory', function (httpFactory) {
+        .controller('httpController', ['$scope', '$http', function ($scope, $http) {
 
-                var self = this;
-                self.flightsFromDate;
-                getFlightsFromDate();
+//                var self = this;
+                $scope.flightsFromDate;
+                
+                $http.get('http://airline-plaul.rhcloud.com/api/flightinfo/CPH/2017-01-20T00:00:00.000Z/1').then(function(response) {
+                    
+                    $scope.flightsFromDate = response.data.flights;
+                    
+                }, function(error) {
+                    
+                    
+                });
 
-                function getFlightsFromDate() {
-                    httpFactory.getFlights()
-                            .then(function (response) {
-                                self.flightsFromDate = response.data;
-                                console.log(self.flightsFromDate);
-                            });
-                };
-            }])
+            }]);
 
+/*
         .factory('httpFactory', ['$http', function ($http) {
 
-                var httpFactory = {};
+                var httpFactory = [];
 
                 httpFactory.getFlights = function () {
                     var url = 'http://airline-plaul.rhcloud.com/api/flightinfo/CPH/2017-01-20/1';
@@ -29,3 +31,4 @@ angular.module('app', [])
                 return httpFactory;
 
             }]);
+            */
