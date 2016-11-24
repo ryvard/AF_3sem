@@ -19,19 +19,27 @@ angular.module('app', [])
             }])
         .filter('dateFilter', function () {
             return function (date) {
-                var dateSplit = date.split("T")
-                console.log(dateSplit[0]);
+                var dateSplit = date.split("T");
                 return dateSplit[0];
-            }
+            };
         })
         .filter('timeFilter', function () {
             return function (date) {
-                var dateSplit = date.split("T")
-                var timeSplit = dateSplit[1].split(":")
-                var time = timeSplit[0]+":"+timeSplit[1];
-                console.log(time);
+                var dateSplit = date.split("T");
+                var timeSplit = dateSplit[1].split(":");
+                var time = timeSplit[0] + ":" + timeSplit[1];
                 return time;
-            }
+            };
+        })
+        .filter('durationFilter', function () {
+            return function (time) {
+                return (time/60|0)+"h "+ time%60+"m";
+            };
+        })
+        .filter('arivalFilter', function () {
+            return function (time) {
+                return time;
+            };
         });
 
 /*

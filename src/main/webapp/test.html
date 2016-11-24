@@ -11,6 +11,8 @@
         
         <div>
             <h3>Flights from {{airlineInfo.airline}}</h3>
+            
+            <p ng-repeat="i in airlineInfo.flights">{{i.date | date}}</p>
             <table>
                 <tr>
                     <th>Airline</th>
@@ -24,13 +26,13 @@
                 </tr>
                 <tr ng-repeat="info in airlineInfo.flights">
                     <td>{{airlineInfo.airline}}</td>
-                    <td>{{info.date | dateFilter}}</td>
+                    <td>{{info.date | date}}</td>
                     <td>{{info.origin}}</td>
                     <td>{{info.date | timeFilter}}</td>
-                    <td>{{info.traveltime}}</td>
-                    <td></td>
+                    <td>{{info.traveltime | durationFilter}}</td>
+                    <td>{{info.date | timeFilter | arivalFilter}}</td>
                     <td>{{info.destination}}</td>
-                    <td>{{info.totalPrice}}</td>
+                    <td>{{info.totalPrice | currency : "DKK"}}</td>
                 </tr>
             </table>
         </div>
