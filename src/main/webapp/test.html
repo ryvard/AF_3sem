@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="app" ng-controller="httpController">
+    <head>
+        <title>Start Page</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+        <script src="javascript.js" type="text/javascript"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <h1>Adventure Flights</h1>
+        
+        <div>
+            <h3>Flights from {{airlineInfo.airline}}</h3>
+            
+            <p ng-repeat="i in airlineInfo.flights">{{i.date | date}}</p>
+            <table>
+                <tr>
+                    <th>Airline</th>
+                    <th>Date</th>
+                    <th>IATA</th>
+                    <th>Depart</th>
+                    <th>duration</th>
+                    <th>Arrival</th>
+                    <th>IATA</th>
+                    <th>Price</th>
+                </tr>
+                <tr ng-repeat="info in airlineInfo.flights">
+                    <td>{{airlineInfo.airline}}</td>
+                    <td>{{info.date | date}}</td>
+                    <td>{{info.origin}}</td>
+                    <td>{{info.date | timeFilter}}</td>
+                    <td>{{info.traveltime | durationFilter}}</td>
+                    <td>{{info.date | timeFilter | arivalFilter}}</td>
+                    <td>{{info.destination}}</td>
+                    <td>{{info.totalPrice | currency : "DKK"}}</td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
