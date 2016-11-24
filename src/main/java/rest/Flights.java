@@ -45,6 +45,7 @@ public class Flights {
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
+    @Path("getflights")
     public String getFlights() {
         
             StringBuilder result = new StringBuilder();
