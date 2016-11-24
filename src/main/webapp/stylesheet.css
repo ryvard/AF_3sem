@@ -160,11 +160,12 @@ li {
     border-color: red;
 }
 
-table {
+.tableHome {
   border-collapse: collapse;
+  padding: 0;
 }
 
-table,td {
+.tdhome {
   padding: 0;
 }
 
