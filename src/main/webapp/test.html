@@ -10,7 +10,12 @@
         <h1>Adventure Flights</h1>
         
         <div>
-            <h3>Flights from {{airlineInfo.airline}}</h3>
+            <h3>{{testRestAir}}</h3>
+            
+            
+            
+            <h3>{{airlineInfo.airline}}</h3>
+           
             
             <p ng-repeat="i in airlineInfo.flights">{{i.date | date}}</p>
             <table>
@@ -28,9 +33,9 @@
                     <td>{{airlineInfo.airline}}</td>
                     <td>{{info.date | date}}</td>
                     <td>{{info.origin}}</td>
-                    <td>{{info.date | timeFilter}}</td>
+                    <td>{{info.date | date:'HH:mm':'UTC+0'}}</td>
                     <td>{{info.traveltime | durationFilter}}</td>
-                    <td>{{info.date | timeFilter | arivalFilter}}</td>
+                    <td>{{info.date | date:'HH:mm':'UTC+0' | arivalFilter:info.traveltime}}</td>
                     <td>{{info.destination}}</td>
                     <td>{{info.totalPrice | currency : "DKK"}}</td>
                 </tr>
