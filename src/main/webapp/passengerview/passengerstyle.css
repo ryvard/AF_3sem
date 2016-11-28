@@ -1,0 +1,30 @@
+.inputfieldPass {
+    font-family: 'Lato', sans-serif;
+}
+
+
+#body-content {overflow: hidden;}
+.divindiv {
+    overflow: hidden;
+}
+
+.redheader {
+    font-family: 'Lato', sans-serif; 
+    font-weight: 900; 
+    color: #E80000; 
+    text-transform: uppercase;
+}
+.textForm {
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #474747;
+    
+    
+}
+
+td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
