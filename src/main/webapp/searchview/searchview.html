@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+        <link href="../stylesheet.css" rel="stylesheet" type="text/css"/>
+        <link href='https://fonts.googleapis.com/css?family=Oswald:300' rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700" rel="stylesheet">
+
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,100,400,900,500" rel="stylesheet">
+    </head>
+    <body style="background-color: #F7F7F7;">
+         <div style="height: 109px; background-color: #181818;">
+                <div style="float: left">
+                    <div style="margin-left: 100px; margin-top: 18px;"><img src="../imageshomepage/logo fra photo.png" width="125"></div>
+                </div>
+
+                <div class="text" style="margin-top: 22px; margin-left: 50px; float: left; font-weight: 400">Leaving from</div>
+                <div class="text" style="margin-top: 22px; margin-left: 163px; float: left; font-weight: 400">Going to</div>
+                <div class="text" style="margin-top: 22px; margin-left: 187px; float: left; font-weight: 400">Depart</div>
+                <div class="text" style="margin-top: 22px; margin-left: 162px; float: left;  width: 250px; font-weight: 400">Number of Tickets</div>
+
+                <div style="margin-left: 50px; margin-top: 10px; float: left">
+                    <input class="inputfield" style="width: 190px; background-repeat: no-repeat; background-position: 90% 50%; background-image: url(../imageshomepage/locationicon.png); font-weight: 300" type="text" placeholder="Airport name">
+                    <input class="inputfield" style="margin-left: 26px; width: 190px; background-repeat: no-repeat; background-position: 90% 50%; background-image: url(../imageshomepage/locationicon.png); font-weight: 300" type="text" placeholder="Airport name">
+                    <input class="inputfield" style="margin-left: 26px; width: 163px; background-repeat: no-repeat; background-position: 90% 50%; background-image: url(../imageshomepage/dateicon.png); font-weight: 300" type="text" placeholder="Select date" >
+                    <input class="inputfield" style="margin-left: 20px; width: 100px; font-weight: 300" type="number" placeholder="Select number">
+                    <input class="orangeButton" style="margin-left: 24px;" type="submit" value="SEARCH">
+
+                </div>
+            </div>
+        
+            <div class="text" style="float: left; color: #181818; margin-top: 20px; font-weight: 400; margin-left: 102px;">
+                Found .. flights
+            </div>
+            <div class="text" style="color: #181818; margin-top: 20px; font-weight: 400; margin-right: 102px; float: right;">
+                Sort by: <select style="width: 140px;">
+                    
+                </select>
+            </div>
+       
+       
+            <div style="background-color: #E80000; margin-top: 70px; margin-left:102px; margin-right: 102px; height: 60px;">
+                <div class="textSearch" style="padding-top: 20px;">{{depart airport}} - {{ destination airport}} | {{date}} | {{numberOfSeats}} </div>
+            </div>
+        <div>
+            <table cellspacing="0" cellpadding="0" style="margin-left: 102px; margin-top: 20px;">
+                
+                <tr>
+                    <th>Airline</th>
+                    <th>Date</th>
+                    <th>IATA Code</th>
+                    <th>Depart</th>
+                    <th>Arrive</th>
+                    <th>Duration</th>
+                    <th>IATA Code</th>
+                    <th>Price</th>
+                    <th></th>
+                </tr>
+                
+                <tr style="background-color: white;">
+                    <td>{{Airline}}</td>
+                    <td>{{Date}}</td>
+                    <td>{{IATA Code}}</td>
+                    <td>{{Depart}}</td>
+                    <td>{{Arrive}}</td>
+                    <td>{{Duration}}</td>
+                    <td>{{IATA Code}}</td>
+                    <td style="color: #E80000; font-size: 14px;">{{Price}}</td>
+                    <td style="padding-left: 20px; padding-right: 20px;"><button class="orangeButton" style="padding-left: 20px; padding-right: 20px;">RESERVATION</button></td>
+                </tr>
+                
+                
+            </table>
+        </div>
+        <div class="subfooter">
+            <img src="../imageshomepage/subfooter.png" height="500">
+        </div>
+        <div class="footer">
+            <div>
+             <ul class="nav">
+                <li>HOME</li>
+                <li>ABOUT US</li>
+                <li>POPULAR DESTINATION</li>
+                <li>MY RESERVATION</li>
+                <li style="padding-right: 0px; margin-right: 0px;">CONTACT US</li>
+            </ul>
+            </div>
+            <div class="text" style="margin-left: 83px; padding-top: 67px; width: 175px; float:left;">
+                © Designed by <div style="color: #FF7E00; float: right;">Adventure Flights</div>
+            </div>
+            <div class="text" style="float: left; margin-left: 700px; font-size: 10px;" >
+                Designed & Developed by eClick Softwares & Solutions Pvt. Ltd.
+            </div>
+        </div>
+    </body>
+</html>

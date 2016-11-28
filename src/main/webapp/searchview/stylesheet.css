@@ -1,0 +1,63 @@
+.section2search {
+    height: 772px;
+    width: 100%;
+    background-color: #F7F7F7;    
+}
+
+.textSearch {
+    color: #F7F7F7;
+    font-size: 14px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    text-align: center;
+    vertical-align: central;
+    text-transform: uppercase;
+        
+}
+
+
+table {
+    
+   
+}
+
+th {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    color: #898787;
+    text-transform: uppercase;
+    width: 115px;
+    text-align: center;
+    
+    
+}
+
+td {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    color: #181818;
+    width: 115px;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-spacing: 0;
+    margin-top: 20px;
+    border-top-width: 20px;
+    border-top-color: #F7F7F7;
+    border-top-style: solid;
+   
+}
+
+.subfooter {
+    height: 500px;
+    background-color: #292F32;
+    margin-top: 80px;
+    
+}
+
+.footer {
+    height: 105px;
+    background-color: #030406;
+}

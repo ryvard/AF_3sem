@@ -1,0 +1,202 @@
+.background1 {
+    background-image: url("imageshomepage/Background1.png");
+    background-size: 100% 100%;
+    border: none;
+}
+
+.logo {
+
+    margin: 0px;
+    margin-top: 52px;
+    margin-left: 141px;
+    float: left;
+    margin-right: 0xp;
+
+}
+
+body {
+    margin: 0px;
+}
+
+.nav {
+    float: right; 
+    margin-top: 28px;
+    margin-right: 228px;
+}
+
+.phoneNumber {
+    color: white;
+    float: right;
+    margin-right: 230px;
+    font-family: Lato;
+    font-size: 16px;
+    margin-top: 23px;
+    height: 30px;
+
+}
+
+.whiteBoxBackground1 {
+    position: absolute;
+    margin-top: 473px;
+    width: 100%;
+    height: 100px;
+    background-color: white;
+}
+
+.blackBoxBackground1 {
+
+    position: absolute;
+    margin-top: 0px;
+    margin-left: 230px;
+    width: 190px;
+    height: 101px;
+    background-color: #181818;
+}
+.flightbooking {
+    
+    font-size: 13px;
+    margin-top: 8px;
+    font-family: Oswald, sans-serif; 
+    letter-spacing: 1.5px;
+    color: white;
+}
+
+.flightsearch {
+    position: absolute;
+    margin-top: 573px;
+    width: 100%;
+    height: 179px;
+    background-color: #181818;
+}
+
+.text {
+    font-family: 'Lato', sans-serif;
+    font-size: 12px;
+    color: #898787;
+}
+
+.inputfield {
+    background-color: transparent; 
+    border-color: #626262; 
+    border-style: solid; 
+    border-width: 1px; 
+    padding: 5px;
+    font-family: 'Lato', sans-serif;
+    font-size: 9px;
+    color: #626262;
+    height: 22px;
+   
+}
+
+.orangeButton {
+    
+    border: 1px; 
+    background-color: #FF7E00;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    color: white;
+    font-family: Oswald, sans-serif;
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+li {
+
+    display: inline;
+    color: white;
+    font-size: 12px;
+    font-family: Oswald, sans-serif;
+    margin-right: 30px;
+    padding: 5px;
+    letter-spacing: 1.5px;
+
+}
+
+.section2 {
+    
+    margin-top: 50px;
+    height: 632px;
+    background-color: white;
+    width: 100%
+   
+        
+}
+
+
+.section2headers {
+    float: left; 
+    margin-top: 60px; 
+    margin-left: 150px;
+    font-family: Roboto, sans-serif;
+    font-weight: 400;
+    color: #AAA9A9;
+    font-size: 12px;
+    letter-spacing: 12px;
+    text-transform: uppercase;
+}
+
+.section2textboxes {
+    float: left; 
+    margin-top: 60px; 
+    margin-left: 150px;
+    font-family: Lato, sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+
+
+}
+
+.section3 {
+    
+    height: 800px;
+    width: 100%;
+    background-color: #F7F7F7;   
+}
+
+.testingOfBorder {
+    border-style: solid;
+    border-color: red;
+}
+
+.tableHome {
+  border-collapse: collapse;
+  padding: 0;
+}
+
+.tdhome {
+  padding: 0;
+}
+
+
+
+.section4 {
+    
+    width: 100%;
+    background-image: url(imageshomepage/backsection4.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 404px;
+    
+}
+
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    cursor:pointer;
+    display:block;
+    width:8px;
+    color: #333;
+    text-align:center;
+    position:relative;
+}    
+input[type=number]:hover::-webkit-inner-spin-button { 
+    background: #181818 url('imageshomepage/sort-arrows-couple-pointing-up-and-down.png') no-repeat 50% 50%;  
+    background-size: 75%;
+    width: 14px;
+    height: 14px;
+    
+   
+}
+
+
