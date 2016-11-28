@@ -19,7 +19,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.PUT;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 
 /**
@@ -45,8 +45,9 @@ public class Flights {
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("getflights")
-    public String getFlights() {
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("{from}/{date}/{tickets}")
+    public String getFromDateTickets(@PathParam("from") String from, @PathParam("date") String date, @PathParam("tickets") int tickets) {
         
             StringBuilder result = new StringBuilder();
         try {
@@ -67,12 +68,5 @@ public class Flights {
         
     }
 
-    /**
-     * PUT method for updating or creating an instance of Flights
-     * @param content representation for the resource
-     */
-    @PUT
-    @Consumes(MediaType.APPLICATION_XML)
-    public void putXml(String content) {
-    }
+    
 }
