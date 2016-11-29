@@ -1,6 +1,5 @@
 <div style="background-color: #F7F7F7">
  
-    <h3>{{HEJHEJ}}</h3>
     <div style="height: 109px; background-color: #181818;">
         <div style="float: left">
             <div style="margin-left: 100px; margin-top: 18px;">
@@ -14,11 +13,18 @@
         <div class="text" style="margin-top: 22px; margin-left: 162px; float: left;  width: 250px; font-weight: 400">Number of Tickets</div>
 
         <div style="margin-left: 50px; margin-top: 10px; float: left">
-            <input class="inputfield" style="width: 190px; background-repeat: no-repeat; background-position: 90% 50%; background-image: url(imageshomepage/locationicon.png); font-weight: 300" type="text" placeholder="Airport name">
-            <input class="inputfield" style="margin-left: 26px; width: 190px; background-repeat: no-repeat; background-position: 90% 50%; background-image: url(imageshomepage/locationicon.png); font-weight: 300" type="text" placeholder="Airport name">
-            <input class="inputfield" style="margin-left: 26px; width: 163px; background-repeat: no-repeat; background-position: 90% 50%; background-image: url(imageshomepage/dateicon.png); font-weight: 300" type="text" placeholder="Select date" >
-            <input class="inputfield" style="margin-left: 20px; width: 100px; font-weight: 300" type="number" placeholder="Select number">
-            <input class="orangeButton" style="margin-left: 24px;" type="submit" value="SEARCH">
+            <input class="inputfield" style="width: 190px; background-repeat: no-repeat; 
+                   background-position: 90% 50%; background-image: url(imageshomepage/locationicon.png); 
+                   font-weight: 300" type="text" placeholder="Airport name" ng-model="departAirport">
+            <input class="inputfield" style="margin-left: 26px; width: 190px; background-repeat: no-repeat; 
+                   background-position: 90% 50%; background-image: url(imageshomepage/locationicon.png); 
+                   font-weight: 300" type="text" placeholder="Airport name" ng-model="arrivalAirport">
+            <input class="inputfield" style="margin-left: 26px; width: 163px; background-repeat: no-repeat; 
+                   background-position: 90% 50%; background-image: url(imageshomepage/dateicon.png); 
+                   font-weight: 300" type="text" placeholder="Select date" ng-model="date">
+            <input class="inputfield" style="margin-left: 20px; width: 100px; font-weight: 300" 
+                   type="number" placeholder="Select number" ng-model="tickets">
+            <input class="orangeButton" style="margin-left: 24px;" type="submit" value="SEARCH" ng-click="getFlights()">
 
         </div>
     </div>
