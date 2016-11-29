@@ -8,7 +8,7 @@ angular.module('routingModule', ['ngRoute','app'])
                 })
                 .when('/search', {
                     templateUrl: 'searchview/searchview.html',
-                    controller: 'httpController'
+                    controller: 'searchCntr'
                 })
                 .when('/reserve', {
                     templateUrl: 'passengerview/passengerview.html'

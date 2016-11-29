@@ -1,16 +1,17 @@
 'use strict';
 angular.module('app', [])
 
-        .controller('searchCntr', ['$scope', '$http', function ($scope, $http) {
+        .controller('searchCntr', ['$scope', '$http', 'iataFactory', function ($scope, $http, iataFactory) {
                 $scope.airlineInfo;
                 $scope.departAirport;
                 $scope.arrivalAirport;
                 $scope.date;
                 $scope.tickets;
+                $scope.iataCodes;
                 
                 $scope.departAirport = 'CPH';
                 $scope.date = '2017-01-20T00:00:00.000Z';
-                $scope.tickets = '1';
+                $scope.tickets = 1;
                 
 
                 $scope.getFlights = function () {
@@ -20,7 +21,22 @@ angular.module('app', [])
                     }, function (error) {
                     });
                 };
+                
+                iataFactory.getIataCode().then(function (response) {
+                    $scope.iataCodes = response.data; 
+                }, function (error) {
+                    
+                });
             }])
+        
+        .factory('iataFactory', ['$http', '$scope', function($http, $scope) {
+              var iataFactory = {};
+              iataFactory.getIataCode = function() {
+                  return $http.get('https://iatacodes.org/api/v6/airports?api_key=8a2623ff-1ca6-4250-aa10-838fb259775a');
+              };
+                         
+            
+        }])
 
         .controller('httpController', ['$scope', '$http', function ($scope, $http) {
 
