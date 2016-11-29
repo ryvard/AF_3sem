@@ -1,30 +1,32 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<!--
-<html>
-    <head>
-        <link rel="stylesheet" href="passengerstyle.css" type="text/css"/>
+<div style="height: 500px; width: 1000px; background-color: #FFFFFF; margin-left: auto; margin-right: auto; margin-top: 20px">
 
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href='https://fonts.googleapis.com/css?family=Oswald:300' rel='stylesheet' type='text/css'>
-        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700" rel="stylesheet">
+    <div style="height: 109px; background-color: #181818;">
+        <div style="float: left">
+            <div style="margin-left: 100px; margin-top: 18px;">
+                <a href="#/"><img src="imageshomepage/logo fra photo.png" width="125"></a>
+            </div>
+        </div>
 
-        <link href="https://fonts.googleapis.com/css?family=Roboto:300,100,400,900,500" rel="stylesheet">
-    </head>
-    <body>
-        -->
-        <div>
-            <div style="float: left; margin-left: 102px; margin-top: 35px; background-color: #F8F8F8; padding-bottom: 35px; padding-right: 20px;">
-                <div style="font-family: 'Lato', sans-serif; margin-left: 25px; margin-right: 25px; padding-top: 25px; padding-bottom: 30px; border-bottom: 1px dotted; border-bottom-color: #898787; font-weight: 900; color: #E80000; text-transform: uppercase;">
+        <div class="text" style="margin-top: 22px; margin-left: 50px; float: left; font-weight: 400">Leaving from</div>
+        <div class="text" style="margin-top: 22px; margin-left: 163px; float: left; font-weight: 400">Going to</div>
+        <div class="text" style="margin-top: 22px; margin-left: 187px; float: left; font-weight: 400">Depart</div>
+        <div class="text" style="margin-top: 22px; margin-left: 162px; float: left;  width: 250px; font-weight: 400">Number of Tickets</div>
+
+        <div style="margin-left: 50px; margin-top: 10px; float: left">
+            <input class="inputfield" style="width: 190px; background-repeat: no-repeat; background-position: 90% 50%; background-image: url(../imageshomepage/locationicon.png); font-weight: 300" type="text" placeholder="Airport name">
+            <input class="inputfield" style="margin-left: 26px; width: 190px; background-repeat: no-repeat; background-position: 90% 50%; background-image: url(../imageshomepage/locationicon.png); font-weight: 300" type="text" placeholder="Airport name">
+            <input class="inputfield" style="margin-left: 26px; width: 163px; background-repeat: no-repeat; background-position: 90% 50%; background-image: url(../imageshomepage/dateicon.png); font-weight: 300" type="text" placeholder="Select date" >
+            <input class="inputfield" style="margin-left: 20px; width: 100px; font-weight: 300" type="number" placeholder="Select number">
+            <input class="orangeButton" style="margin-left: 24px;" type="submit" value="SEARCH">
+
+        </div>
+    </div>
+    <div>
+        <div style="float: left; margin-left: 102px; margin-top: 35px; background-color: #F8F8F8; padding-bottom: 35px; padding-right: 20px;">
+            <div style="font-family: 'Lato', sans-serif; margin-left: 25px; margin-right: 25px; padding-top: 25px; padding-bottom: 30px; border-bottom: 1px dotted; border-bottom-color: #898787; font-weight: 900; color: #E80000; text-transform: uppercase;">
                 Reservee info
             </div>
-            
+
             <div class="textLato" style="color: #474747; font-family: 'Lato', sans-serif; margin-top: 40px; margin-left: 25px; font-size: 12px;">
                 <div style="float:left; height:31px; padding-top: 7px;">First name </div><div style="padding-left: 20px; float: left;"><input class='inputfieldPass' style="height: 25px; width: 200px;" type="text"></div>
                 <div style="margin-left: 30px; float:left; height:31px; padding-top: 7px;">Last name </div><div style="padding-left: 20px; float: left;"><input class='inputfieldPass' style="height: 25px; width: 200px;" type="text"></div>
@@ -43,13 +45,13 @@ and open the template in the editor.
                 <div id="body-content" style="float: left; margin-left: 25px; width: 35px; padding: 7px; font-weight: 500;">{{1}}</div><div style="float: left;"><input style="width: 230px; height: 25px;" type="text"></div><div style="float:left; padding-left: 20px;"><input style="width: 230px; height: 25px;" type="text"></div>  
             </div>
         </div>
-            
+
         <div style="float: left; margin-left: 20px; margin-top: 35px;">
-                 
+
             <div style="font-family: 'Lato', sans-serif; margin-right: 25px; padding-top: 25px; font-weight: 900; color: #E80000; text-transform: uppercase;">
                 Flight info
             </div>
-            
+
             <table style="padding-top: 10px;">
                 <tr class="textForm">
                     <td style="width: 200px;">flight no</td>
@@ -78,8 +80,5 @@ and open the template in the editor.
             </table>
         </div>
 
-            </div>
-   <!--     
-    </body>
-</html>
--->
+    </div>
+</div>

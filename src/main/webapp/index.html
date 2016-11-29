@@ -3,37 +3,41 @@
     <head>
         <title>Start Page</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular-route.js"></script>
+        <script src="javascript.js" type="text/javascript"></script>
+        <script src="routing.js" type="text/javascript"></script>
+        
+        <link href="searchview/stylesheet.css" rel="stylesheet" type="text/css"/>
         <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
         <link href='https://fonts.googleapis.com/css?family=Oswald:300' rel='stylesheet' type='text/css'>
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i" rel="stylesheet">
         <link href="searchview/stylesheet.css" rel="stylesheet" type="text/css"/>
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,100,400,900,500" rel="stylesheet">
-        <script src="javascript.js" type="text/javascript"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"
-            type="text/javascript"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.min.js"
-            type="text/javascript"></script>
-        <script src="routing.js" type="text/javascript"></script>
+        
     </head>
-    <body>
-        <div ng-view>
-          
+    <body ng-controller="httpController">
+        <h1>HEJ {{HEJHEJ}}</h1>
+        <div ng-view="">
+
         </div>
-            <div class="section4">
-               
-            </div>
+        
+        <div class="section4">
+
+        </div>
         <div class="subfooter" style="margin-top: 0px;">
             <img src="imageshomepage/subfooter.png" height="500">
         </div>
         <div class="footer">
             <div>
-             <ul class="nav">
-                <li>HOME</li>
-                <li>ABOUT US</li>
-                <li>POPULAR DESTINATION</li>
-                <li>MY RESERVATION</li>
-                <li style="padding-right: 0px; margin-right: 0px;">CONTACT US</li>
-            </ul>
+                <ul class="nav">
+                    <li>HOME</li>
+                    <li>ABOUT US</li>
+                    <li>POPULAR DESTINATION</li>
+                    <li>MY RESERVATION</li>
+                    <li style="padding-right: 0px; margin-right: 0px;">CONTACT US</li>
+                </ul>
             </div>
             <div class="text" style="margin-left: 83px; padding-top: 67px; width: 175px; float:left;">
                 © Designed by <div style="color: #FF7E00; float: right;">Adventure Flights</div>

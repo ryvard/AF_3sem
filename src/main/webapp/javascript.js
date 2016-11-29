@@ -1,27 +1,21 @@
 'use strict';
-angular.module('app', [])
+angular.module('app',[])
 
         .controller('httpController', ['$scope', '$http', function ($scope, $http) {
 
-//                var self = this;
-                //$scope.flightsFromDate;
                 $scope.airlineInfo;
                 $scope.testRestAir;
+                $scope.HEJHEJ;
+                $scope.HEJHEJ = 'MED DIG';
 
                 $http.get('http://airline-plaul.rhcloud.com/api/flightinfo/CPH/2017-01-20T00:00:00.000Z/1').then(function (response) {
                     $scope.airlineInfo = response.data;
-//                    $scope.flightsFromDate = response.data.flights;
-
                 }, function (error) {
-
-
                 });
                 
                 $http.get("http://localhost:8080/AF_3sem/api/flights/getflights").then(function(response){
                     $scope.testRestAir = response.data;
                 }, function (error) {
-
-
                 });
                
 
