@@ -1,4 +1,4 @@
-<div  style="background-color: #F7F7F7">
+<div style="background-color: #F7F7F7">
  
     <h3>{{HEJHEJ}}</h3>
     <div style="height: 109px; background-color: #181818;">
@@ -14,9 +14,9 @@
         <div class="text" style="margin-top: 22px; margin-left: 162px; float: left;  width: 250px; font-weight: 400">Number of Tickets</div>
 
         <div style="margin-left: 50px; margin-top: 10px; float: left">
-            <input class="inputfield" style="width: 190px; background-repeat: no-repeat; background-position: 90% 50%; background-image: url(../imageshomepage/locationicon.png); font-weight: 300" type="text" placeholder="Airport name">
-            <input class="inputfield" style="margin-left: 26px; width: 190px; background-repeat: no-repeat; background-position: 90% 50%; background-image: url(../imageshomepage/locationicon.png); font-weight: 300" type="text" placeholder="Airport name">
-            <input class="inputfield" style="margin-left: 26px; width: 163px; background-repeat: no-repeat; background-position: 90% 50%; background-image: url(../imageshomepage/dateicon.png); font-weight: 300" type="text" placeholder="Select date" >
+            <input class="inputfield" style="width: 190px; background-repeat: no-repeat; background-position: 90% 50%; background-image: url(imageshomepage/locationicon.png); font-weight: 300" type="text" placeholder="Airport name">
+            <input class="inputfield" style="margin-left: 26px; width: 190px; background-repeat: no-repeat; background-position: 90% 50%; background-image: url(imageshomepage/locationicon.png); font-weight: 300" type="text" placeholder="Airport name">
+            <input class="inputfield" style="margin-left: 26px; width: 163px; background-repeat: no-repeat; background-position: 90% 50%; background-image: url(imageshomepage/dateicon.png); font-weight: 300" type="text" placeholder="Select date" >
             <input class="inputfield" style="margin-left: 20px; width: 100px; font-weight: 300" type="number" placeholder="Select number">
             <input class="orangeButton" style="margin-left: 24px;" type="submit" value="SEARCH">
 
@@ -33,10 +33,10 @@
     </div>
 
 
-    <div style="background-color: #E80000; margin-top: 70px; margin-left:102px; margin-right: 102px; height: 60px;">
-        <div class="textSearch" style="padding-top: 20px;">{{depart airport}} - {{ destination airport}} | {{date}} | {{numberOfSeats}} </div>
+    <div  style="background-color: #E80000; margin-top: 70px; margin-left:102px; margin-right: 102px; height: 60px;">
+        <div class="textSearch" style="padding-top: 20px;"> - destination airport | date | numberOfSeats </div>
     </div>
-    <div>
+    <div style="padding-bottom: 50px;">
         <table cellspacing="0" cellpadding="0" style="margin-left: 102px; margin-top: 20px;">
 
             <tr>
@@ -51,7 +51,7 @@
                 <th></th>
             </tr>
 
-            <tr ng-repeat="info in airlineInfo.airline" style="background-color: white;">
+            <tr ng-repeat="info in airlineInfo.flights" style="background-color: white;">
                 <td>{{airlineInfo.airline}}</td>
                 <td>{{info.date| date}}</td>
                 <td>{{info.origin}}</td>

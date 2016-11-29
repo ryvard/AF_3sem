@@ -7,7 +7,8 @@ angular.module('routingModule', ['ngRoute','app'])
                     templateUrl: 'home.html'
                 })
                 .when('/search', {
-                    templateUrl: 'searchview/searchview.html'
+                    templateUrl: 'searchview/searchview.html',
+                    controller: 'httpController'
                 })
                 .when('/reserve', {
                     templateUrl: 'passengerview/passengerview.html'
@@ -15,9 +16,7 @@ angular.module('routingModule', ['ngRoute','app'])
                 .otherwise({
                     redirectTo: '/'
                 });
-    }])
+    }]);
 
-.controller('testctrl',['$scope', function($scope){
-   $scope.bla = 'lalala';     
-}]);
+
 
