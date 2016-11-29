@@ -24,7 +24,7 @@ import org.json.JSONObject;
 @Path("flights")
 public class Flights {
 
-    private static final String STARTURL = "http://airline-plaul.rhcloud.com/api";
+    private static final String STARTURL = "http://airline-plaul.rhcloud.com/api/flightinfo/";
 
     @Context
     private UriInfo context;
@@ -61,7 +61,43 @@ public class Flights {
 
             StringBuilder result = new StringBuilder();
 
-            URL requestURL = new URL(STARTURL + "/flightinfo/" + from + "/" + formatDate(c.getTime()) + "/" + tickets);
+            URL requestURL = new URL(STARTURL + from + "/" + formatDate(c.getTime()) + "/" + tickets);
+            InputStream in = requestURL.openStream();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+
+            String line;
+            while ((line = reader.readLine()) != null) {
+                result.append(line);
+            }
+            JSONObject o = new JSONObject(result.toString());
+
+            return o.toString(2);
+
+        } catch (IOException ex) {
+            Logger.getLogger(Flights.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("/{from}/{to}/{date}/{tickets}")
+    public String flightsParam(@PathParam("from") String from, @PathParam("to") String to, @PathParam("date") String date, @PathParam("tickets") String tickets) {
+
+        try {
+            String[] array = date.split("-");
+            Calendar c = Calendar.getInstance();
+
+            int year = Integer.parseInt(array[0]);
+            int month = Integer.parseInt(array[1]);
+            int day = Integer.parseInt(array[2]);
+
+            c.set(year, month - 1, day);
+
+            StringBuilder result = new StringBuilder();
+
+            URL requestURL = new URL(STARTURL + from + "/" + to + "/" + formatDate(c.getTime()) + "/" + tickets);
             InputStream in = requestURL.openStream();
             BufferedReader reader = new BufferedReader(new InputStreamReader(in));
 
