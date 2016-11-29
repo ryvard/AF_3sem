@@ -15,7 +15,11 @@
         <div style="margin-left: 50px; margin-top: 10px; float: left">
             <input class="inputfield" style="width: 190px; background-repeat: no-repeat; 
                    background-position: 90% 50%; background-image: url(imageshomepage/locationicon.png); 
-                   font-weight: 300" type="text" placeholder="Airport name" ng-model="departAirport">
+                   font-weight: 300" type="text" placeholder="Airport name" ng-model="departAirport" list="departAirport">
+            <datalist id="departAirport">
+                <option ng-repeat="IATA in iataCodes.response" value="{{IATA.code}}">
+            </datalist>
+            
             <input class="inputfield" style="margin-left: 26px; width: 190px; background-repeat: no-repeat; 
                    background-position: 90% 50%; background-image: url(imageshomepage/locationicon.png); 
                    font-weight: 300" type="text" placeholder="Airport name" ng-model="arrivalAirport">

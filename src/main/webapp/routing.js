@@ -11,7 +11,8 @@ angular.module('routingModule', ['ngRoute','app'])
                     controller: 'searchCntr'
                 })
                 .when('/reserve', {
-                    templateUrl: 'passengerview/passengerview.html'
+                    templateUrl: 'passengerview/passengerview.html',
+                    controller: 'searchCntr'
                 })
                 .otherwise({
                     redirectTo: '/'
