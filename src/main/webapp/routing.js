@@ -21,6 +21,8 @@ angular.module('routingModule', ['ngRoute', 'resultModule'])
                         .otherwise({
                             redirectTo: '/'
                         });
+                        
+                        //reloadOnSearch:false   Gør at den ikke reloader data når man skifter view
             }]);
 
 
