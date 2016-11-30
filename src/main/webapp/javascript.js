@@ -1,7 +1,7 @@
 'use strict';
 angular.module('app', [])
 
-        .controller('searchCntr', ['$scope', '$http','dataFactory', function ($scope, $http, dataFactory) {
+        .controller('searchCntr', ['$scope', '$http', 'dataFactory', function ($scope, $http, dataFactory) {
                 $scope.airlineInfo;
                 $scope.departAirport;
                 $scope.arrivalAirport;
@@ -17,11 +17,11 @@ angular.module('app', [])
 
                 $scope.test;
                 $scope.test = 'TEST VIRK JAAA';
-
+                
                 $scope.test = function () {
 
                     console.log($scope.airlineInfo.airline);
-                }
+                };
 
 
                 $http.get('https://iatacodes.org/api/v6/airports?api_key=8a2623ff-1ca6-4250-aa10-838fb259775a').then(function (response) {
@@ -35,7 +35,7 @@ angular.module('app', [])
                             + $scope.departAirport + '/' + $scope.date + '/' + $scope.tickets).then(function (response) {
                         $scope.airlineInfo = response.data;
                         dataFactory.set($scope.airlineInfo);
-                        console.log(response.data)
+                        console.log(response.data);
                         console.log($scope.airlineInfo.airline);
                     }, function (error) {
                     });
@@ -64,7 +64,7 @@ angular.module('app', [])
               return{
                   set:set,
                   get:get
-              }
+              };
               
                          
             
