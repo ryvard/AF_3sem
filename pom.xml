@@ -142,7 +142,7 @@
                 <version>2.2</version>
                 <configuration>
                     <port>8084</port>
-                    <path>/AF_API</path>
+                    <path>/AF_3sem</path>
                 </configuration>
                 <executions>
                     <execution>

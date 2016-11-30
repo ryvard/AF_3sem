@@ -16,16 +16,17 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import static io.restassured.RestAssured.given;
 
 /**
  *
  * @author Jmach
  */
-public class FlightsTest {
+public class FlightsIntegrationTest {
     
     
     
-    public FlightsTest() {
+    public FlightsIntegrationTest() {
     }
     
     @BeforeClass
