@@ -17,8 +17,8 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,100,400,900,500" rel="stylesheet">
         
     </head>
-    <body>
-        <div style="height: 109px; background-color: #181818;">
+    <body ng-controller="searchBarCntr">
+        <div ng-hide="showSearchBar === false" style="height: 109px; background-color: #181818;">
         <div style="float: left">
             <div style="margin-left: 100px; margin-top: 18px;">
                 <a href="#/"><img src="imageshomepage/logo fra photo.png" width="125"></a>
@@ -46,7 +46,7 @@
                    font-weight: 300" type="text" placeholder="Select date" ng-model="date">
             <input class="inputfield" style="margin-left: 20px; width: 100px; font-weight: 300" 
                    type="number" placeholder="Select number" ng-model="tickets">
-            <input class="orangeButton" style="margin-left: 24px;" type="submit" value="SEARCH" ng-click="getFlights()">
+            <input class="orangeButton" style="margin-left: 24px;" type="submit" value="SEARCH" ng-click="getFlights(); showSearchBar = true" >
 
         </div>
     </div>

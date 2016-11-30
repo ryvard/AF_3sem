@@ -1,6 +1,11 @@
 'use strict';
 angular.module('resultModule', [])
 
+        .controller('searchBarCntr', ['$scope', function ($scope) {
+           $scope.showSearchBar = false;    
+           console.log($scope.showSearchBar);
+        }])
+
         .controller('searchCntr', ['$scope', '$http', function ($scope, $http) {
                 $scope.airlineInfo;
                 $scope.departAirport;
