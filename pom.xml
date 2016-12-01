@@ -135,7 +135,6 @@
             </plugin>
             
             
-            
             <!-- Embedded Tomcat Server -->
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
@@ -174,7 +173,7 @@
                 <version>2.12.1</version>
                 <configuration>
                     <excludes>
-<!--                        <exclude>**/*IntegrationTest*</exclude>-->
+                        <exclude>**/*IntegrationTest*</exclude>
                         <exclude>**/*Selenium*</exclude>
                     </excludes>
                 </configuration>
