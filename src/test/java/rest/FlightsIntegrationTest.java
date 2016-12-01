@@ -23,12 +23,10 @@ import static org.hamcrest.Matchers.containsString;
  * @author Jmach
  */
 public class FlightsIntegrationTest {
-    
-    
-    
+
     public FlightsIntegrationTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
         System.out.println("BeforeClass");
@@ -36,17 +34,17 @@ public class FlightsIntegrationTest {
         RestAssured.port = 8084;
         RestAssured.basePath = "/AF_3sem";
         RestAssured.defaultParser = Parser.JSON;
-    
+
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -54,40 +52,36 @@ public class FlightsIntegrationTest {
     /**
      * Test of flightsParam method, of class Flights.
      */
-    
     @Test
-    public void serverIsRunning()
-    {
-        System.out.println("ServerIsRunningTEST");
+    public void serverIsRunning() {
         given().
                 when().get("http://localhost:8084/AF_3sem/").
                 then().
                 statusCode(200);
     }
-    
+
     @Test
     public void invalidUrl() {
-        System.out.println("InvalidURLTEST");
         given().when().get("http://localhost:8084/AF_3sem/api/flight/BCN/2017-01-18/1")
-            .then().statusCode(404);
+                .then().statusCode(404);
     }
-    
+
     @Test
     public void noContentFromParameter() {
         given().when().get("http://localhost:8084/AF_3sem/api/flights/xxx/2017-01-18/1")
-            .then().statusCode(204);
+                .then().statusCode(204);
     }
-    
+
     @Test
     public void containsAirlineName() {
         given().when().get("http://localhost:8084/AF_3sem/api/flights/BCN/2017-01-18/1").then()
-            .body(containsString("AngularJS Airline"));
+                .body(containsString("AngularJS Airline"));
     }
-    
+
     @Test
     public void verifyNameOfAirline() {
         given().when().get("http://localhost:8084/AF_3sem/api/flights/BCN/2017-01-18/1").then()
-            .body("airline", equalTo("AngularJS Airline"));
+                .body("airline", equalTo("AngularJS Airline"));
     }
-    
+
 }
