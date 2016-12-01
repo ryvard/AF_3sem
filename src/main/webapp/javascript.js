@@ -1,11 +1,22 @@
 'use strict';
 angular.module('resultModule', [])
+   
 
         .controller('searchBarCntr', ['$scope', '$http', '$location', function ($scope, $http, $location) {
 
-                $scope.currentPath = $location.path();;
+                var path = window.location.href;
+                var newPath = path.split('AF_3sem/#');
+
+
+                $scope.currentPath = $location.$$path;
+
                 console.log($scope.currentPath);
+                console.log(newPath);
+                console.log(path);
                 
+                $scope.testPath;
+                console.log($scope.testPath);
+
 //                $scope.showSearchBar;
 //                $scope.showSearchBar = false;
 //
@@ -37,7 +48,7 @@ angular.module('resultModule', [])
                 $scope.date;
                 $scope.tickets;
                 $scope.flightInfo;
-                
+
                 $scope.departAirport = 'CPH';
                 $scope.date = '2017-01-18';
                 $scope.tickets = 1;
@@ -86,3 +97,7 @@ angular.module('resultModule', [])
                 return (parseInt(timeSplit[0]) + (duration / 60 | 0)) + ":" + (parseInt(timeSplit[1]) + duration % 60);
             };
         });
+
+
+
+
