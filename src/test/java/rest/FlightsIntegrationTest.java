@@ -6,7 +6,7 @@
 package rest;
 
 import io.restassured.RestAssured;
-import static io.restassured.RestAssured.given;
+
 import io.restassured.parsing.Parser;
 import static org.hamcrest.CoreMatchers.equalTo;
 import org.junit.After;
@@ -14,7 +14,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
+
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.containsString;
 
@@ -31,7 +31,7 @@ public class FlightsIntegrationTest {
     
     @BeforeClass
     public static void setUpClass() {
-     
+        System.out.println("BeforeClass");
         RestAssured.baseURI = "http://localhost";
         RestAssured.port = 8084;
         RestAssured.basePath = "/AF_3sem";
@@ -58,6 +58,7 @@ public class FlightsIntegrationTest {
     @Test
     public void serverIsRunning()
     {
+        System.out.println("ServerIsRunningTEST");
         given().
                 when().get("http://localhost:8084/AF_3sem/").
                 then().
@@ -66,6 +67,7 @@ public class FlightsIntegrationTest {
     
     @Test
     public void invalidUrl() {
+        System.out.println("InvalidURLTEST");
         given().when().get("http://localhost:8084/AF_3sem/api/flight/BCN/2017-01-18/1")
             .then().statusCode(404);
     }
