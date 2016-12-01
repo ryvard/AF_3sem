@@ -32,7 +32,7 @@ public class FlightsTest {
     public static void setUpClass() {
      
         RestAssured.baseURI = "http://localhost";
-        RestAssured.port = 8084;
+        RestAssured.port = 8080;
         RestAssured.basePath = "/AF_3sem";
         RestAssured.defaultParser = Parser.JSON;
     
@@ -58,32 +58,32 @@ public class FlightsTest {
     public void serverIsRunning()
     {
         given().
-                when().get("http://localhost:8084/AF_3sem/").
+                when().get("http://localhost:8080/AF_3sem/").
                 then().
                 statusCode(200);
     }
     
     @Test
     public void invalidUrl() {
-        given().when().get("http://localhost:8084/AF_3sem/api/flight/BCN/2017-01-18/1")
+        given().when().get("http://localhost:8080/AF_3sem/api/flight/BCN/2017-01-18/1")
             .then().statusCode(404);
     }
     
     @Test
     public void noContentFromParameter() {
-        given().when().get("http://localhost:8084/AF_3sem/api/flights/xxx/2017-01-18/1")
+        given().when().get("http://localhost:8080/AF_3sem/api/flights/xxx/2017-01-18/1")
             .then().statusCode(204);
     }
     
     @Test
     public void containsAirlineName() {
-        given().when().get("http://localhost:8084/AF_3sem/api/flights/BCN/2017-01-18/1").then()
+        given().when().get("http://localhost:8080/AF_3sem/api/flights/BCN/2017-01-18/1").then()
             .body(containsString("AngularJS Airline"));
     }
     
     @Test
     public void verifyNameOfAirline() {
-        given().when().get("http://localhost:8084/AF_3sem/api/flights/BCN/2017-01-18/1").then()
+        given().when().get("http://localhost:8080/AF_3sem/api/flights/BCN/2017-01-18/1").then()
             .body("airline", equalTo("AngularJS Airline"));
     }
     

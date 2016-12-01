@@ -1,6 +1,38 @@
+<div style="height: 109px; background-color: #181818;">
+    <div style="float: left">
+        <div style="margin-left: 100px; margin-top: 18px;">
+            <a href="#/"><img src="imageshomepage/logo fra photo.png" width="125"></a>
+        </div>
+    </div>
+
+    <div class="text" style="margin-top: 22px; margin-left: 50px; float: left; font-weight: 400">Leaving from</div>
+    <div class="text" style="margin-top: 22px; margin-left: 163px; float: left; font-weight: 400">Going to</div>
+    <div class="text" style="margin-top: 22px; margin-left: 187px; float: left; font-weight: 400">Depart</div>
+    <div class="text" style="margin-top: 22px; margin-left: 162px; float: left;  width: 250px; font-weight: 400">Number of Tickets</div>
+
+    <div style="margin-left: 50px; margin-top: 10px; float: left">
+        <input class="inputfield" style="width: 190px; background-repeat: no-repeat; 
+               background-position: 90% 50%; background-image: url(imageshomepage/locationicon.png); 
+               font-weight: 300" type="text" placeholder="Airport name" ng-model="departAirport" list="departAirport">
+        <datalist id="departAirport">
+            <option ng-repeat="IATA in iataCodes.response" value="{{IATA.code}}">
+        </datalist>
+
+        <input class="inputfield" style="margin-left: 26px; width: 190px; background-repeat: no-repeat; 
+               background-position: 90% 50%; background-image: url(imageshomepage/locationicon.png); 
+               font-weight: 300" type="text" placeholder="Airport name" ng-model="arrivalAirport">
+        <input class="inputfield" style="margin-left: 26px; width: 163px; background-repeat: no-repeat; 
+               background-position: 90% 50%; background-image: url(imageshomepage/dateicon.png); 
+               font-weight: 300" type="text" placeholder="Select date" ng-model="date">
+        <input class="inputfield" style="margin-left: 20px; width: 100px; font-weight: 300" 
+               type="number" placeholder="Select number" ng-model="tickets">
+        <input class="orangeButton" style="margin-left: 24px;" type="submit" value="SEARCH" ng-click="getFlights()" >
+
+    </div>
+</div>
 <div style="height: auto; padding-bottom: 50px; width: 100%; background-color: #FFFFFF; margin-left: auto; margin-right: auto; margin-top: 20px">
 
-   
+
     <div class="divindiv" style="background-color: white;" >
         <div style="float: left; margin-left: 102px; margin-top: 35px; background-color: #F8F8F8; padding-bottom: 35px; padding-right: 20px;">
             <div style="font-family: 'Lato', sans-serif; margin-left: 25px; margin-right: 25px; padding-top: 25px; padding-bottom: 30px; border-bottom: 1px dotted; border-bottom-color: #898787; font-weight: 900; color: #E80000; text-transform: uppercase;">

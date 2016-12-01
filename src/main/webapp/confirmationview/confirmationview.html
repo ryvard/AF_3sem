@@ -1,9 +1,4 @@
-<!DOCTYPE html>
 <!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <title>TODO supply a title</title>
@@ -16,44 +11,78 @@ and open the template in the editor.
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,100,400,900,500" rel="stylesheet">
     </head>
     
-    <body>
-        <div>
-            <div class="divindiv" style="margin-left: 198px; padding-top: 20px; width: 875px; background-color: #F8F8F8;">
-                <div align="center" class="redheader" style="font-size: 30px;">confimation of reservation</div>
-                <div style="float: left;">
-                <div class="redheader" style="padding-left: 60px; padding-top: 40px;">person info</div>
-                <div class="textForm" style="padding-left: 57px;">
-                    <table style="padding-top: 20px;">
-                        <tr>
-                            <td style="width: 285px;">reservee first name</td>
-                            <td style="font-weight: bold;">{{info}}</td>
-                        </tr>
-                        <tr>
-                            <td>reservee last name</td>
-                            <td style="font-weight: bold;">{{info}}</td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="redheader" style="padding-left: 60px; padding-top: 40px;">passenger info</div>
-                <div class="textForm" style="padding-left: 57px; padding-bottom: 40px;">
-                    <table style="padding-top: 20px;">
-                        <tr>
-                            <td style="width: 285px;">passenger name1</td>
-                            <td style="font-weight: bold;">{{info}}</td>
-                        </tr>
-                        <tr>
-                            <td>passenger name2</td>
-                            <td style="font-weight: bold;">{{info}}</td>
-                        </tr>
-                    </table>
-                </div>
+    <body>-->
+
+<div style="height: 109px; background-color: #181818;">
+    <div style="float: left">
+        <div style="margin-left: 100px; margin-top: 18px;">
+            <a href="#/"><img src="imageshomepage/logo fra photo.png" width="125"></a>
+        </div>
+    </div>
+
+    <div class="text" style="margin-top: 22px; margin-left: 50px; float: left; font-weight: 400">Leaving from</div>
+    <div class="text" style="margin-top: 22px; margin-left: 163px; float: left; font-weight: 400">Going to</div>
+    <div class="text" style="margin-top: 22px; margin-left: 187px; float: left; font-weight: 400">Depart</div>
+    <div class="text" style="margin-top: 22px; margin-left: 162px; float: left;  width: 250px; font-weight: 400">Number of Tickets</div>
+
+    <div style="margin-left: 50px; margin-top: 10px; float: left">
+        <input class="inputfield" style="width: 190px; background-repeat: no-repeat; 
+               background-position: 90% 50%; background-image: url(imageshomepage/locationicon.png); 
+               font-weight: 300" type="text" placeholder="Airport name" ng-model="departAirport" list="departAirport">
+        <datalist id="departAirport">
+            <option ng-repeat="IATA in iataCodes.response" value="{{IATA.code}}">
+        </datalist>
+
+        <input class="inputfield" style="margin-left: 26px; width: 190px; background-repeat: no-repeat; 
+               background-position: 90% 50%; background-image: url(imageshomepage/locationicon.png); 
+               font-weight: 300" type="text" placeholder="Airport name" ng-model="arrivalAirport">
+        <input class="inputfield" style="margin-left: 26px; width: 163px; background-repeat: no-repeat; 
+               background-position: 90% 50%; background-image: url(imageshomepage/dateicon.png); 
+               font-weight: 300" type="text" placeholder="Select date" ng-model="date">
+        <input class="inputfield" style="margin-left: 20px; width: 100px; font-weight: 300" 
+               type="number" placeholder="Select number" ng-model="tickets">
+        <input class="orangeButton" style="margin-left: 24px;" type="submit" value="SEARCH" ng-click="getFlights()" >
+
+    </div>
+</div>
+
+<div>
+    <div class="divindiv" style="margin-left: 198px; padding-top: 20px; width: 875px; background-color: #F8F8F8;">
+        <div align="center" class="redheader" style="font-size: 30px;">confimation of reservation</div>
+        <div style="float: left;">
+            <div class="redheader" style="padding-left: 60px; padding-top: 40px;">person info</div>
+            <div class="textForm" style="padding-left: 57px;">
+                <table style="padding-top: 20px;">
+                    <tr>
+                        <td style="width: 285px;">reservee first name</td>
+                        <td style="font-weight: bold;">{{info}}</td>
+                    </tr>
+                    <tr>
+                        <td>reservee last name</td>
+                        <td style="font-weight: bold;">{{info}}</td>
+                    </tr>
+                </table>
             </div>
-            <div style="float: left; margin-left: 150px; padding-bottom: 20px;">
-                 
+            <div class="redheader" style="padding-left: 60px; padding-top: 40px;">passenger info</div>
+            <div class="textForm" style="padding-left: 57px; padding-bottom: 40px;">
+                <table style="padding-top: 20px;">
+                    <tr>
+                        <td style="width: 285px;">passenger name1</td>
+                        <td style="font-weight: bold;">{{info}}</td>
+                    </tr>
+                    <tr>
+                        <td>passenger name2</td>
+                        <td style="font-weight: bold;">{{info}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div style="float: left; margin-left: 150px; padding-bottom: 20px;">
+
             <div style="font-family: 'Lato', sans-serif; margin-right: 25px; padding-top: 40px; font-weight: 900; color: #E80000; text-transform: uppercase;">
                 Flight info
             </div>
-            
+
             <table style="padding-top: 10px;">
                 <tr class="textForm">
                     <td style="width: 200px;">flight no</td>
@@ -81,8 +110,7 @@ and open the template in the editor.
                 </tr>
             </table>
         </div>
-                </div>
-            
-        </div>
-    </body>
-</html>
+    </div>
+
+</div>
+
