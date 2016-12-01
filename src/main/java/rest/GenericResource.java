@@ -38,7 +38,7 @@ public class GenericResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String getJson() {
-        return "Christian is king";
+        return "Christian is the king";
     }
 
     /**
