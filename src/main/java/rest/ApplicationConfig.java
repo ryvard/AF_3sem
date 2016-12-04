@@ -31,6 +31,7 @@ public class ApplicationConfig extends Application {
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(rest.Flights.class);
         resources.add(rest.GenericResource.class);
+        resources.add(restException.httpExeptionMapper.class);
     }
     
 }
