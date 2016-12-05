@@ -1,69 +1,80 @@
 'use strict';
-angular.module('app', [])
+angular.module('resultModule', [])
 
-        .controller('httpController', ['$scope', '$http', function ($scope, $http) {
-
-//                var self = this;
-                //$scope.flightsFromDate;
+        .controller('searchCntr', ['$scope', '$http', function ($scope, $http) {
                 $scope.airlineInfo;
-                $scope.testRestAir;
+                $scope.departAirport;
+                $scope.arrivalAirport;
+                $scope.date;
+                $scope.tickets;
+                $scope.flightInfo;
+                $scope.iataCodes;
+                $scope.departAirport = 'CPH';
+                $scope.arrivalAirport = 'all destinations';
+                $scope.date = '2017-01-18';
+                $scope.tickets = 1;
+                $scope.getFlights = function () {
+                    console.log('GET FLIGHTS');
+                    if ($scope.arrivalAirport === 'all destinations')
+                    {
+                        $http.get('http://localhost:8080/AF_3sem/api/flights/'
+                                + $scope.departAirport + '/' + $scope.date + '/' + $scope.tickets).then(function (response) {
+                            $scope.airlineInfo = response.data;
+//                        dataFactory.set($scope.airlineInfo);
+                            console.log(response.data);
+                            console.log($scope.airlineInfo.airline);
+                        }, function (error) {
+                        });
+                    } else {
+                        $http.get('http://localhost:8080/AF_3sem/api/flights/'
+                                + $scope.departAirport + '/' + $scope.arrivalAirport + '/' + $scope.date + '/' + $scope.tickets).then(function (response) {
+                            $scope.airlineInfo = response.data;
+//                        dataFactory.set($scope.airlineInfo);
+                            console.log(response.data);
+                            console.log($scope.airlineInfo.airline);
+                        }, function (error) {
+                        });
+                    }
+                    ;
+                    $http.get('https://iatacodes.org/api/v6/airports?api_key=8a2623ff-1ca6-4250-aa10-838fb259775a').then(function (response) {
+                        $scope.iataCodes = response.data;
+                        console.log($scope.iataCodes);
+                    }, function (error) {
 
-                $http.get('http://airline-plaul.rhcloud.com/api/flightinfo/CPH/2017-01-20T00:00:00.000Z/1').then(function (response) {
-                    $scope.airlineInfo = response.data;
-//                    $scope.flightsFromDate = response.data.flights;
-
-                }, function (error) {
-
-
-                });
-                
-                $http.get("http://localhost:8080/AF_3sem/api/flights/getflights").then(function(response){
-                    $scope.testRestAir = response.data;
-                }, function (error) {
-
-
-                });
-               
-
+                    });
+                };
             }])
-//        .filter('dateFilter', function () {
-//            return function (date) {
-//                var dateSplit = date.split("T");
-//                return dateSplit[0];
+
+//       
+//        .factory('flightService',[function(){
+//            var flights = {};
+//            
+//            return{
+//                setFligths : function(data){
+//                    flights = data;
+//                },
+//                getFlights : function(){
+//                    return flights;
+//                }
 //            };
-//        })
-//        .filter('timeFilter', function () {
-//            return function (date) {
-//                var dateSplit = date.split("T");
-//                var timeSplit = dateSplit[1].split(":");
-//                var time = timeSplit[0] + ":" + timeSplit[1];
-//                return time;
-//            };
-//        })
+//            
+//            
+//        }])
+
+
+
         .filter('durationFilter', function () {
             return function (time) {
-                return (time/60|0)+"h "+ time%60+"m";
+                return (time / 60 | 0) + "h " + time % 60 + "m";
             };
         })
         .filter('arivalFilter', function () {
             return function (time, duration) {
                 var timeSplit = time.split(":");
-                return (parseInt(timeSplit[0])+(duration/60|0))+":"+(parseInt(timeSplit[1])+duration%60);
+                return (parseInt(timeSplit[0]) + (duration / 60 | 0)) + ":" + (parseInt(timeSplit[1]) + duration % 60);
             };
         });
 
-/*
- .factory('httpFactory', ['$http', function ($http) {
- 
- var httpFactory = [];
- 
- httpFactory.getFlights = function () {
- var url = 'http://airline-plaul.rhcloud.com/api/flightinfo/CPH/2017-01-20/1';
- console.log(url);
- return $http.get(url);
- };
- 
- return httpFactory;
- 
- }]);
- */
+
+
+

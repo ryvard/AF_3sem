@@ -1,144 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="routingModule">
     <head>
         <title>Start Page</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular-route.js"></script>
+        <script src="javascript.js" type="text/javascript"></script>
+        <script src="routing.js" type="text/javascript"></script>
+        <link href="passengerview/passengerstyle.css" rel="stylesheet" type="text/css"/>
+        <link href="searchview/stylesheet.css" rel="stylesheet" type="text/css"/>
         <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
         <link href='https://fonts.googleapis.com/css?family=Oswald:300' rel='stylesheet' type='text/css'>
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i" rel="stylesheet">
         <link href="searchview/stylesheet.css" rel="stylesheet" type="text/css"/>
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,100,400,900,500" rel="stylesheet">
+
     </head>
     <body>
-        <div class="background1" style="height: 700px; border-style: none;">
-            <div class="phoneNumber">
-                <img src="imageshomepage/Numberlogo.png">
-                <div style="float:right; padding-top: 7px; padding-left: 8px">123 456 7890</div>
-            </div>
-            <div class="logo">
-                <img src="imageshomepage/logo fra photo.png">
-            </div>
-            <ul class="nav">
-                <li>HOME</li>
-                <li>ABOUT US</li>
-                <li>POPULAR DESTINATION</li>
-                <li>MY RESERVATION</li>
-                <li style="padding-right: 0px; margin-right: 0px;">CONTACT US</li>
-            </ul>
-            <div class="whiteBoxBackground1">
-                <div class="blackBoxBackground1">
-                    <div style="margin: 31px 18px 133px 31px;"><img src="imageshomepage/flight.png">
-                        <div class="flightbooking" style="float: right;">FLIGHT BOOKING</div>
-                    </div>
-                </div>
-            </div>
-            <div class="flightsearch">
-                <div style="float: left">
-                    <div style="margin-left: 121px; margin-top: 30px;"><img src="imageshomepage/book your flight.png"></div>
-                    <div class="text" style="font-weight: 400; color: #898787; margin-left: 121px; margin-top: 10px; width: 260px;">
-                        Please select your departure airport, date and number of tickets
-                    </div>
-                </div>
 
-                <div class="text" style="margin-top: 59px; margin-left: 120px; float: left; font-weight: 400">Leaving from</div>
-                <div class="text" style="margin-top: 59px; margin-left: 91px; float: left; font-weight: 400">Going to</div>
-                <div class="text" style="margin-top: 59px; margin-left: 115px; float: left; font-weight: 400">Depart</div>
-                <div class="text" style="margin-top: 59px; margin-left: 74px; float: left;  width: 250px; font-weight: 400">Number of Tickets</div>
+        
 
-                <div style="margin-left: 120px; margin-top: 10px; float: left">
-                    <input class="inputfield" style="width: 118px; background-repeat: no-repeat; background-position: 90% 50%; background-image: url(imageshomepage/locationicon.png); font-weight: 300" type="text" placeholder="Airport name">
-                    <input class="inputfield" style="margin-left: 26px; width: 116px; background-repeat: no-repeat; background-position: 90% 50%; background-image: url(locationicon.png); font-weight: 300" type="text" placeholder="Airport name">
-                    <input class="inputfield" style="margin-left: 26px; width: 75px; background-repeat: no-repeat; background-position: 90% 50%; background-image: url(dateicon.png); font-weight: 300" type="text" placeholder="Select date" >
-                    <input class="inputfield" style="margin-left: 20px; width: 100px; font-weight: 300" type="number" placeholder="Select number">
-                    <input class="orangeButton" style="margin-left: 24px;" type="submit" value="SEARCH">
-
-                </div>
-            </div> 
-        </div>
-        <div class="section2">
-            <div style="float: right; margin-right: 75px; margin-top: 45px;"><img src="imageshomepage/section2back.png"></div>
-            <div class="section2headers">
-                <div>We are</div>
-                <div style="font-weight: 100; font-size: 53px; text-transform: none; margin-top: 10px; float: left; color: #808080; letter-spacing: 0px;">Why Choose</div>
-                <div style="font-weight: 900; color: #606060; font-size: 53px; margin-top: 20px; letter-spacing: 0px; text-transform: none;">Adventure Flights</div>
-                <div style="margin-top: 25px"><img src="imageshomepage/orange line.png"></div>
-            </div>
-            <div class="section2textboxes" style="margin-top: 50px;">
-                <div style="float: left;">
-                    <div style="float: left; "><img src="imageshomepage/circleWeWorking.png"></div>
-                    <div style="float: left;  color: #E80000; margin-top: 16px; margin-left: 15px; font-size: 16px;">We working</div>
-                    <div style="width: 175px; margin-left: 117px; padding-top: 50px; color: #354E5C; font-size: 10.66px;">We work to find cheapest flights so you can enjoy your vacation without</div>
-                </div>
-
-
-                <div style="margin-left: 50px; float: left;">
-                    <div style="float: left; "><img src="imageshomepage/cicleCheapDeal.png"></div>
-                    <div style="float: left;  color: #E80000; margin-top: 16px; margin-left: 15px; font-size: 16px;">Cheapest deal</div>
-                    <div style="width: 175px; margin-left: 117px; padding-top: 50px; color: #354E5C; font-size: 10.66px;">We work to find cheapest flights so you can enjoy your vacation without</div>
-                </div>
-            </div>
-            <div class="section2textboxes" style="margin-top: 40px;">
-                <div style="float: left;">
-                    <div style="float: left; "><img src="imageshomepage/circleMoreOf.png"></div>
-                    <div style="float: left;  color: #E80000; margin-top: 16px; margin-left: 15px; font-size: 16px;">More offers</div>
-                    <div style="width: 175px; margin-left: 117px; padding-top: 50px; color: #354E5C; font-size: 10.66px;">We work to find cheapest flights so you can enjoy your vacation without</div>
-                </div>
-
-                <div style="margin-left: 50px; float: left;">
-                    <div style="float: left; "><img src="imageshomepage/circleReliab.png"></div>
-                    <div style="float: left;  color: #E80000; margin-top: 16px; margin-left: 15px; font-size: 16px;">Reliability</div>
-                    <div style="width: 175px; margin-left: 117px; padding-top: 50px; color: #354E5C; font-size: 10.66px;">We work to find cheapest flights so you can enjoy your vacation without</div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="section3">
-            <div align="center" style="font-family: Roboto, sans-serif; color: #161616; font-size: 24px; padding-top: 45px; font-weight: 500;">Popular Destinations</div>
-            <div align="center" style="font-family: Roboto, sans-serif; font-size: 10.66px; color: #5D5D5D; padding-top: 25px;">Take the stress out of planning a holiday with one of these best selling packages</div>
-            <div align="center" style="padding-top: 20px;"><img src="imageshomepage/orange line.png"></div>   
-
-            <div style="height: 500px; width: 1000px; background-color: #FFFFFF; margin-left: auto; margin-right: auto; margin-top: 20px">
-
-                <table class="tableHome" cellspacing="0" cellpadding="0">
-                    <tr style="height: 0;">
-                        <td class="tdhome"><img src="imageshomepage/peoplepic.png" width="250"></td>
-                        <td class="tdhome" style="width: 240px;"></td>
-                        <td class="tdhome"><img src="imageshomepage/flightpic.png" width="250"></td>
-                        <td class="tdhome" style="width: 250px;"></td>
-                    </tr>
-                    <tr style="height: 0;">
-                        <td class="tdhome" style="width: 250px;"></td>
-                        <td class="tdhome"><img src="imageshomepage/vacpic.png" width="250"></td>
-                        <td class="tdhome"></td>
-                        <td class="tdhome"><img src="imageshomepage/woman.png" width="250" height="250"></td>
-                    </tr>
-                </table>
+            <div ng-view="">
 
             </div>
-        </div>
+
             <div class="section4">
-               
+
             </div>
-        <div class="subfooter" style="margin-top: 0px;">
-            <img src="imageshomepage/subfooter.png" height="500">
-        </div>
-        <div class="footer">
-            <div>
-             <ul class="nav">
-                <li>HOME</li>
-                <li>ABOUT US</li>
-                <li>POPULAR DESTINATION</li>
-                <li>MY RESERVATION</li>
-                <li style="padding-right: 0px; margin-right: 0px;">CONTACT US</li>
-            </ul>
+            <div class="subfooter" style="margin-top: 0px;">
+                <img src="imageshomepage/subfooter.png" height="500">
             </div>
-            <div class="text" style="margin-left: 83px; padding-top: 67px; width: 175px; float:left;">
-                © Designed by <div style="color: #FF7E00; float: right;">Adventure Flights</div>
+            <div class="footer">
+                <div>
+                    <ul class="nav">
+                        <li>HOME</li>
+                        <li>ABOUT US</li>
+                        <li>POPULAR DESTINATION</li>
+                        <li>MY RESERVATION</li>
+                        <li style="padding-right: 0px; margin-right: 0px;">CONTACT US</li>
+                    </ul>
+                </div>
+                <div class="text" style="margin-left: 83px; padding-top: 67px; width: 175px; float:left;">
+                    © Designed by <div style="color: #FF7E00; float: right;">Adventure Flights</div>
+                </div>
+                <div class="text" style="float: left; margin-left: 700px; font-size: 10px;" >
+                    Designed & Developed by eClick Softwares & Solutions Pvt. Ltd.
+                </div>
             </div>
-            <div class="text" style="float: left; margin-left: 700px; font-size: 10px;" >
-                Designed & Developed by eClick Softwares & Solutions Pvt. Ltd.
-            </div>
-        </div>
     </body>
 </html>

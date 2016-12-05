@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="app" ng-controller="httpController">
+<html ng-app="app" ng-controller="searchCntr">
     <head>
         <title>Start Page</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
@@ -10,6 +10,9 @@
         <h1>Adventure Flights</h1>
         
         <div>
+            
+            {{iataCodes.response[0].name}}
+            
             <h3>{{testRestAir}}</h3>
             
             
