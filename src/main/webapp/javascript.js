@@ -1,46 +1,6 @@
 'use strict';
 angular.module('resultModule', [])
 
-
-//        .controller('searchBarCntr', ['$scope', '$http', '$location', function ($scope, $http, $location) {
-//
-//                var path = window.location.href;
-//                var newPath = path.split('AF_3sem/#');
-//
-//
-//                $scope.currentPath = $location.$$path;
-//
-//                console.log($scope.currentPath);
-//                console.log(newPath);
-//                console.log(path);
-//                
-//                $scope.testPath;
-//                console.log($scope.testPath);
-//
-////                $scope.showSearchBar;
-////                $scope.showSearchBar = false;
-////
-////                $scope.setShowSearchBar = function (boo) {
-////                    if (boo === true) {
-////
-////                        $scope.showSearchBar = true;
-////                        alert('True!' + $scope.showSearchBar);
-////                    } else {
-////                        $scope.showSearchBar = false;
-////                        alert('False!' + $scope.showSearchBar);
-////                    }
-////
-////                };
-////
-////                $scope.iataCodes;
-//
-////                $http.get('https://iatacodes.org/api/v6/airports?api_key=8a2623ff-1ca6-4250-aa10-838fb259775a').then(function (response) {
-////                            $scope.iataCodes = response.data;
-////                        }, function (error) {
-////
-////                        });
-//            }])
-
         .controller('searchCntr', ['$scope', '$http', function ($scope, $http) {
                 $scope.airlineInfo;
                 $scope.departAirport;
@@ -82,23 +42,22 @@ angular.module('resultModule', [])
                     }, function (error) {
 
                     });
-                }
+                };
             }])
 
-//        .factory('dataFactory', ['$scope', function($scope) {
-//              var searchData = {};
-//              function set(data){
-//                  searchData = data;
-//              }
-//              function get(){
-//                return searchData;  
-//              }
-//              return{
-//                  set:set,
-//                  get:get
-//              };
-//              
-
+//       
+//        .factory('flightService',[function(){
+//            var flights = {};
+//            
+//            return{
+//                setFligths : function(data){
+//                    flights = data;
+//                },
+//                getFlights : function(){
+//                    return flights;
+//                }
+//            };
+//            
 //            
 //        }])
 
