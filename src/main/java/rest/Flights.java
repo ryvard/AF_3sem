@@ -22,17 +22,20 @@ import javax.ws.rs.core.MediaType;
 import org.json.JSONObject;
 
 @Path("flights")
-public class Flights {
+public class Flights
+{
 
     private static final String STARTURL = "http://airline-plaul.rhcloud.com/api/flightinfo/";
 
     @Context
     private UriInfo context;
+    private Calendar c = Calendar.getInstance();
 
     /**
      * Creates a new instance of GenericResource
      */
-    public Flights() {
+    public Flights()
+    {
     }
 
     /**
@@ -47,18 +50,14 @@ public class Flights {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("/{from}/{date}/{tickets}")
-    public String flightsParam(@PathParam("from") String from, @PathParam("date") String date, @PathParam("tickets") String tickets) {
+    public String flightsParam(@PathParam("from") String from, @PathParam("date") String date, @PathParam("tickets") String tickets)
+    {
+      
 
-        try {
-            String[] array = date.split("-");
-            Calendar c = Calendar.getInstance();
-
-            int year = Integer.parseInt(array[0]);
-            int month = Integer.parseInt(array[1]);
-            int day = Integer.parseInt(array[2]);
-
-            c.set(year, month - 1, day);
-
+        try
+        {
+            setDate(date);
+            
             StringBuilder result = new StringBuilder();
 
             URL requestURL = new URL(STARTURL + from + "/" + formatDate(c.getTime()) + "/" + tickets);
@@ -66,14 +65,16 @@ public class Flights {
             BufferedReader reader = new BufferedReader(new InputStreamReader(in));
 
             String line;
-            while ((line = reader.readLine()) != null) {
+            while ((line = reader.readLine()) != null)
+            {
                 result.append(line);
             }
             JSONObject o = new JSONObject(result.toString());
 
             return o.toString(2);
 
-        } catch (IOException ex) {
+        } catch (IOException ex)
+        {
             Logger.getLogger(Flights.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
@@ -83,17 +84,12 @@ public class Flights {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("/{from}/{to}/{date}/{tickets}")
-    public String flightsParam(@PathParam("from") String from, @PathParam("to") String to, @PathParam("date") String date, @PathParam("tickets") String tickets) {
+    public String flightsParam(@PathParam("from") String from, @PathParam("to") String to, @PathParam("date") String date, @PathParam("tickets") String tickets)
+    {
 
-        try {
-            String[] array = date.split("-");
-            Calendar c = Calendar.getInstance();
-
-            int year = Integer.parseInt(array[0]);
-            int month = Integer.parseInt(array[1]);
-            int day = Integer.parseInt(array[2]);
-
-            c.set(year, month - 1, day);
+        try
+        {   
+            setDate(date);
 
             StringBuilder result = new StringBuilder();
 
@@ -102,22 +98,38 @@ public class Flights {
             BufferedReader reader = new BufferedReader(new InputStreamReader(in));
 
             String line;
-            while ((line = reader.readLine()) != null) {
+            while ((line = reader.readLine()) != null)
+            {
                 result.append(line);
             }
             JSONObject o = new JSONObject(result.toString());
 
             return o.toString(2);
 
-        } catch (IOException ex) {
+        } catch (IOException ex)
+        {
             Logger.getLogger(Flights.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
 
-    private String formatDate(Date date) {
+    private String formatDate(Date date)
+    {
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
         return df.format(date);
+    }
+
+    private void setDate(String date)
+    {
+        String[] array = date.split("-");
+        
+        int year = Integer.parseInt(array[0]);
+        int month = Integer.parseInt(array[1]);
+        int day = Integer.parseInt(array[2]);
+
+        c.set(year, month - 1, day);
+        
+        System.out.println("hej fra set date");
     }
 
 }
