@@ -10,6 +10,7 @@ import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.ws.rs.core.MediaType;
@@ -19,7 +20,7 @@ import javax.ws.rs.core.MediaType;
  *
  * @author Bruger
  */
-@Path("generic")
+@Path("reserve")
 public class GenericResource {
 
     @Context
@@ -41,12 +42,11 @@ public class GenericResource {
         return "Christian is the king";
     }
 
-    /**
-     * PUT method for updating or creating an instance of GenericResource
-     * @param content representation for the resource
-     */
-    @PUT
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public void putJson(String content) {
+    @Path("gem")
+    public String reserveTickets(){
+        return "reserve";
     }
 }

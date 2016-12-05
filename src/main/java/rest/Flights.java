@@ -128,8 +128,6 @@ public class Flights
         int day = Integer.parseInt(array[2]);
 
         c.set(year, month - 1, day);
-        
-        System.out.println("hej fra set date");
     }
 
 }
