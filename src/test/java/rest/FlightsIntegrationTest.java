@@ -31,7 +31,7 @@ public class FlightsIntegrationTest {
     public static void setUpClass() {
         System.out.println("BeforeClass");
         RestAssured.baseURI = "http://localhost";
-        RestAssured.port = 8080;
+        RestAssured.port = 8084;
         RestAssured.basePath = "/AF_3sem";
         RestAssured.defaultParser = Parser.JSON;
 
@@ -55,7 +55,7 @@ public class FlightsIntegrationTest {
     @Test
     public void serverIsRunning() {
         given().
-                when().get("http://localhost:8080/AF_3sem/").
+                when().get("http://localhost:8084/AF_3sem/").
                 then().
                 statusCode(200);
     }
