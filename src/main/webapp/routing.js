@@ -1,14 +1,18 @@
+
 'use strict';
 angular.module('routingModule', ['ngRoute', 'resultModule'])
 
         .config(['$routeProvider', function ($routeProvider) {
                 $routeProvider
                         .when('/', {
-                            templateUrl: 'home.html'
+                            templateUrl: 'home.html',
+//                            controller: 'searchCntr',
+//                            reloadOnSearch:false
                         })
                         .when('/search', {
                             templateUrl: 'searchview/searchview.html',
-                            controller: 'searchCntr'
+//                            controller: 'searchCntr',
+//                            reloadOnSearch:false
                         })
                         .when('/reserve', {
                             templateUrl: 'passengerview/passengerview.html',

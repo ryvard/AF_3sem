@@ -1,3 +1,4 @@
+
 'use strict';
 angular.module('resultModule', [])
 
@@ -13,6 +14,11 @@ angular.module('resultModule', [])
                 $scope.arrivalAirport = 'all destinations';
                 $scope.date = '2017-01-18';
                 $scope.tickets = 1;
+                $scope.getScope = function () {
+                    console.log('-----------------------------------------------');
+                    console.log($scope);
+                    console.log('-----------------------------------------------');
+                };
                 $scope.getFlights = function () {
                     console.log('GET FLIGHTS');
                     if ($scope.arrivalAirport === 'all destinations')
@@ -23,6 +29,7 @@ angular.module('resultModule', [])
 //                        dataFactory.set($scope.airlineInfo);
                             console.log(response.data);
                             console.log($scope.airlineInfo.airline);
+                            console.log($scope);
                         }, function (error) {
                         });
                     } else {
@@ -36,12 +43,12 @@ angular.module('resultModule', [])
                         });
                     }
                     ;
-                    $http.get('https://iatacodes.org/api/v6/airports?api_key=8a2623ff-1ca6-4250-aa10-838fb259775a').then(function (response) {
-                        $scope.iataCodes = response.data;
-                        console.log($scope.iataCodes);
-                    }, function (error) {
-
-                    });
+//                    $http.get('https://iatacodes.org/api/v6/airports?api_key=8a2623ff-1ca6-4250-aa10-838fb259775a').then(function (response) {
+//                        $scope.iataCodes = response.data;
+//                        console.log($scope.iataCodes);
+//                    }, function (error) {
+//
+//                    });
                 };
             }])
 
