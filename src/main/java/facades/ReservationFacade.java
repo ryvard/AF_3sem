@@ -30,6 +30,10 @@ public class ReservationFacade {
     private EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
+    
+    public void setEmf(EntityManagerFactory emf) {
+        this.emf = emf;
+    }
 
     public boolean addReservation(Reservation reserve) {
         EntityManager em = getEntityManager();

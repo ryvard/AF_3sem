@@ -6,6 +6,8 @@
 package facades;
 
 import entities.Reservation;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -18,8 +20,10 @@ import static org.junit.Assert.*;
  * @author emmablomsterberg
  */
 public class ReservationFacadeTest {
-    
+    EntityManagerFactory emf;
+    ReservationFacade instance;
     public ReservationFacadeTest() {
+        instance = new ReservationFacade();
     }
     
     @BeforeClass
@@ -32,6 +36,8 @@ public class ReservationFacadeTest {
     
     @Before
     public void setUp() {
+        emf = Persistence.createEntityManagerFactory("PU_AFReserve");
+        instance.setEmf(emf);
     }
     
     @After
@@ -40,10 +46,10 @@ public class ReservationFacadeTest {
 
     @Test
     public void addReservation() {
-        ReservationFacade rf = new ReservationFacade();
+       
         Reservation reserve = new Reservation(1, "2040");
         boolean assertResult = true;
-        boolean result = rf.addReservation(reserve);
+        boolean result = instance.addReservation(reserve);
         
         assertEquals(assertResult, result);
     }
