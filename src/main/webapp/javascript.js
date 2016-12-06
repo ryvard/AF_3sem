@@ -2,7 +2,7 @@
 'use strict';
 angular.module('resultModule', [])
 
-        .controller('searchCntr', ['$scope', '$http', function ($scope, $http) {
+        .controller('searchCntr', ['$scope', '$http', 'flights', function ($scope, $http, flights) {
                 $scope.airlineInfo;
                 $scope.departAirport;
                 $scope.arrivalAirport;
@@ -10,10 +10,17 @@ angular.module('resultModule', [])
                 $scope.tickets;
                 $scope.flightInfo;
                 $scope.iataCodes;
-                $scope.departAirport = 'CPH';
-                $scope.arrivalAirport = 'all destinations';
-                $scope.date = '2017-01-18';
-                $scope.tickets = 1;
+                
+//                ------------------------------------------------
+                $scope.list = flights.list;
+                $scope.addTicket = function (input) {
+                    flights.addInput(input);
+                };
+//              ---------------------------------------------------
+//                $scope.departAirport = 'CPH';
+//                $scope.arrivalAirport = 'all destinations';
+//                $scope.date = '2017-01-18';
+//                $scope.tickets = 1;
                 $scope.getScope = function () {
                     console.log('-----------------------------------------------');
                     console.log($scope);
@@ -52,21 +59,19 @@ angular.module('resultModule', [])
                 };
             }])
 
-//       
-//        .factory('flightService',[function(){
-//            var flights = {};
-//            
-//            return{
-//                setFligths : function(data){
-//                    flights = data;
-//                },
-//                getFlights : function(){
-//                    return flights;
-//                }
-//            };
-//            
-//            
-//        }])
+
+        .factory('flights', [function () {
+                var flights = {};
+
+                flights.list = [];
+                
+                flights.addInput = function (input){
+                  flights.list.push({tickets: input});  
+                };
+
+                return flights;
+
+            }])
 
 
 

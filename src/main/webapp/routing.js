@@ -6,12 +6,12 @@ angular.module('routingModule', ['ngRoute', 'resultModule'])
                 $routeProvider
                         .when('/', {
                             templateUrl: 'home.html',
-//                            controller: 'searchCntr',
+                            controller: 'searchCntr',
 //                            reloadOnSearch:false
                         })
                         .when('/search', {
                             templateUrl: 'searchview/searchview.html',
-//                            controller: 'searchCntr',
+                            controller: 'searchCntr',
 //                            reloadOnSearch:false
                         })
                         .when('/reserve', {

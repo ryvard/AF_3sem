@@ -34,11 +34,12 @@
         <div class="text" style="margin-top: 59px; margin-left: 74px; float: left;  width: 250px; font-weight: 400">Number of Tickets</div>
 
         <div style="margin-left: 120px; margin-top: 10px; float: left">
-            <input class="inputfield" style="width: 118px; background-repeat: no-repeat; background-position: 90% 50%; background-image: url(imageshomepage/locationicon.png); font-weight: 300" type="text" placeholder="Airport name">
-            <input class="inputfield" style="margin-left: 26px; width: 116px; background-repeat: no-repeat; background-position: 90% 50%; background-image: url(imageshomepage/locationicon.png); font-weight: 300" type="text" placeholder="Airport name">
-            <input class="inputfield" style="margin-left: 26px; width: 75px; background-repeat: no-repeat; background-position: 90% 50%; background-image: url(imageshomepage/dateicon.png); font-weight: 300" type="text" placeholder="Select date" >
-            <input class="inputfield" style="margin-left: 20px; width: 100px; font-weight: 300" type="number" placeholder="Select number">
-            <a href="#search"><input class="orangeButton" style="margin-left: 24px;" type="submit" value="SEARCH" ng-click="getFlights()"></a>
+            <input class="inputfield" style="width: 118px; background-repeat: no-repeat; background-position: 90% 50%; background-image: url(imageshomepage/locationicon.png); font-weight: 300" type="text" placeholder="Airport name" ng-model="departAirport">
+            <input class="inputfield" style="margin-left: 26px; width: 116px; background-repeat: no-repeat; background-position: 90% 50%; background-image: url(imageshomepage/locationicon.png); font-weight: 300" type="text" placeholder="Airport name" ng-model="arrivalAirport">
+            <input class="inputfield" style="margin-left: 26px; width: 75px; background-repeat: no-repeat; background-position: 90% 50%; background-image: url(imageshomepage/dateicon.png); font-weight: 300" type="text" placeholder="Select date" ng-model="date">
+            <input class="inputfield" style="margin-left: 20px; width: 100px; font-weight: 300" type="number" placeholder="Select number" ng-model="ticket">
+            <a href="#search"><input class="orangeButton" style="margin-left: 24px;" type="submit" value="SEARCH" ng-click="saveTicket(ticket)"></a>
+            xxxxxxxxxxxxxxxx------------{{tickets}}------------xxxxxxxxxxxxxx
 
 
         </div>
