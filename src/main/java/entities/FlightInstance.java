@@ -1,16 +1,23 @@
 package entities;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  *
  * @author miaryvard
  */
 @Entity
-public class FlightInstance
+
+public class FlightInstance extends Flight
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,6 +27,17 @@ public class FlightInstance
     private String time;
     private String availebleSeats;
     private String price;
+    
+   
+    @ManyToOne
+    private Flight flight;
+    
+    
+
+    //@OneToMany
+   
+    @OneToMany(mappedBy = "flightInstance")
+    private List<Reservation> reserve = new ArrayList();
 
     public FlightInstance()
     {

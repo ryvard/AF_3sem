@@ -1,17 +1,24 @@
 package entities;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
 
 /**
  *
  * @author miaryvard
  */
 @Entity
-public class Airport
-{@Id
+
+public class Airport extends Flight
+{
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String IATACode;
@@ -19,7 +26,12 @@ public class Airport
     private String name;
     private String country;
     private String city;
-
+    
+    
+  //  @OneToMany
+    @OneToMany(mappedBy = "airport")
+    private List<Flight> fligths = new ArrayList();
+    
     public Airport()
     {
     }
