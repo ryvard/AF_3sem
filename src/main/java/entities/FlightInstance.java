@@ -34,8 +34,7 @@ public class FlightInstance extends Flight
     
 
     //@OneToMany
-   
-    @OneToMany(mappedBy = "flightInstance", cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "flightInstance")
     private List<Reservation> reserve = new ArrayList();
 
     public FlightInstance()

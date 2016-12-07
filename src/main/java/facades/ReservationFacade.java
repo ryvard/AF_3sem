@@ -11,6 +11,7 @@ import entities.Flight;
 import entities.FlightInstance;
 import entities.Passenger;
 import entities.Reservation;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -53,10 +54,10 @@ public class ReservationFacade {
         
         try {
             em.getTransaction().begin();
-            flight.setAirport(airport);
-            flight.setAirline(airline);
-            flightInstance.setFlight(flight);
-            flightInstance.setReserve(reserve);
+            //flight.setAirport(airport);
+            //flight.setAirline(airline);
+            //flightInstance.setFlight(flight);
+            //flightInstance.setReserve(reserve);
             
             
             
@@ -66,7 +67,20 @@ public class ReservationFacade {
 //            reserve.setFlightInstance(flightInstance);
 //            reserve.setPassengers(passengers);
             
+        FlightInstance fI = new FlightInstance("test", "test", "test", "test", "test");
             em.persist(flightInstance);
+        List<Reservation> reserve2 = new ArrayList();
+        Reservation ikkeDetSamme = new Reservation("204");
+        reserve2.add(ikkeDetSamme);
+        fI.setReserve(reserve2);
+        ikkeDetSamme.setFlightInstance(fI);
+//        List<Passenger> passengers = new ArrayList();
+//        passengers.add(new Passenger("mia", "ryvard"));
+//        Airline airline = new Airline("nameair");
+//        Flight flight = new Flight("flightnum", 2, "flight");
+//        Airport airport = new Airport("aiport1", "airport2", "airport3", "airport4", "airport5");
+//            em.persist(reserve2);
+            em.persist(ikkeDetSamme);
             em.getTransaction().commit();
             return true;
             
