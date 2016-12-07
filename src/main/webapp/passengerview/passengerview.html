@@ -26,7 +26,7 @@
                font-weight: 300" type="text" placeholder="Select date" ng-model="date">
         <input class="inputfield" style="margin-left: 20px; width: 100px; font-weight: 300" 
                type="number" placeholder="Select number" ng-model="tickets">
-        <input class="orangeButton" style="margin-left: 24px;" type="submit" value="SEARCH" ng-click="getFlights()" >
+        <a href="#search"><input class="orangeButton" style="margin-left: 24px;" type="submit" value="SEARCH" ng-click="addInputs(departAirport, arrivalAirport, date, tickets); getFlights()" ></a>
 
     </div>
 </div>
