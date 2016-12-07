@@ -2,12 +2,11 @@ package entities;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -36,16 +35,16 @@ public class FlightInstance extends Flight
 
     //@OneToMany
    
-    @OneToMany(mappedBy = "flightInstance")
+    @OneToMany(mappedBy = "flightInstance", cascade = CascadeType.PERSIST)
     private List<Reservation> reserve = new ArrayList();
 
     public FlightInstance()
     {
     }
 
-    public FlightInstance(long id, String flightId, String date, String time, String availebleSeats, String price)
+    public FlightInstance(String flightId, String date, String time, String availebleSeats, String price)
     {
-        this.id = id;
+      //  this.id = id;
         this.flightId = flightId;
         this.date = date;
         this.time = time;
@@ -111,6 +110,22 @@ public class FlightInstance extends Flight
     public void setPrice(String price)
     {
         this.price = price;
+    }
+
+    public Flight getFlight() {
+        return flight;
+    }
+
+    public void setFlight(Flight flight) {
+        this.flight = flight;
+    }
+
+    public List<Reservation> getReserve() {
+        return reserve;
+    }
+
+    public void setReserve(List<Reservation> reserve) {
+        this.reserve = reserve;
     }
     
     

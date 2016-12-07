@@ -2,6 +2,7 @@ package entities;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -28,7 +29,7 @@ public class Airline extends Flight
     
     
    // @OneToMany
-    @OneToMany(mappedBy = "airline")
+    @OneToMany(mappedBy = "airline", cascade = CascadeType.PERSIST)
     private List<Flight> flights;
     
 
@@ -37,10 +38,10 @@ public class Airline extends Flight
         this.flights = new ArrayList();
     }
 
-    public Airline(long id, String name)
+    public Airline(String name)
     {
         this.flights = new ArrayList();
-        this.id = id;
+       // this.id = id;
         this.name = name;
     }
 
@@ -62,6 +63,14 @@ public class Airline extends Flight
     public void setName(String name)
     {
         this.name = name;
+    }
+
+    public List<Flight> getFlights() {
+        return flights;
+    }
+
+    public void setFlights(List<Flight> flights) {
+        this.flights = flights;
     }
     
     

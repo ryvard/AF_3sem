@@ -31,9 +31,9 @@ public class Passenger
     {
     }
     
-    public Passenger(long id, String firstName, String lastName)
+    public Passenger(String firstName, String lastName)
     {
-        this.id = id;
+        //this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
     }
@@ -66,6 +66,14 @@ public class Passenger
     public void setLastName(String lastName)
     {
         this.lastName = lastName;
+    }
+
+    public Reservation getReserves() {
+        return reserves;
+    }
+
+    public void setReserves(Reservation reserves) {
+        this.reserves = reserves;
     }
 
     

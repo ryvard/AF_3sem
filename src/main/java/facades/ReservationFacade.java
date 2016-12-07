@@ -5,7 +5,13 @@
  */
 package facades;
 
+import entities.Airline;
+import entities.Airport;
+import entities.Flight;
+import entities.FlightInstance;
+import entities.Passenger;
 import entities.Reservation;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -35,12 +41,32 @@ public class ReservationFacade {
         this.emf = emf;
     }
 
-    public boolean addReservation(Reservation reserve) {
+    public boolean addReservation(
+            List<Reservation> reserve, 
+            FlightInstance flightInstance, 
+            List<Passenger> passengers, 
+            Airline airline,
+            Flight flight,
+            Airport airport) {
+        
         EntityManager em = getEntityManager();
         
         try {
             em.getTransaction().begin();
-            em.persist(reserve);
+            flight.setAirport(airport);
+            flight.setAirline(airline);
+            flightInstance.setFlight(flight);
+            flightInstance.setReserve(reserve);
+            
+            
+            
+//            flight.setAirline(airline);
+//            flight.setAirport(airport);
+//       
+//            reserve.setFlightInstance(flightInstance);
+//            reserve.setPassengers(passengers);
+            
+            em.persist(flightInstance);
             em.getTransaction().commit();
             return true;
             
