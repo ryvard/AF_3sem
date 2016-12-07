@@ -1,7 +1,7 @@
 
 'use strict';
 angular.module('resultModule', [])
-
+        
         .controller('searchCntr', ['$scope', '$http', 'flights', function ($scope, $http, flights) {
 
                 $scope.airlineInfo;
@@ -15,8 +15,9 @@ angular.module('resultModule', [])
                 $scope.arrivalAirport = flights.inputs.arrival;
                 $scope.date = flights.inputs.date;
                 $scope.tickets = flights.inputs.ticket;
-                $scope.addInputs = function (depart, arrival, date, ticket) {
-                    flights.addInput(depart, arrival, date, ticket);
+                
+                 $scope.addInputs = function (departAirport, arrivalAirport, date, tickets) {
+                    flights.addInput(departAirport, arrivalAirport, date, tickets);
                 };
                 
                 $scope.getFlights = function () {
@@ -44,8 +45,8 @@ angular.module('resultModule', [])
 
                 flights.inputs = {};
 
-                flights.addInput = function (depart, arrival, date, ticket) {
-                    flights.inputs = {depart: depart, arrival: arrival, date: date, ticket: ticket};
+                flights.addInput = function (departAirport, arrivalAirport, date, tickets) {
+                    flights.inputs = {depart: departAirport, arrival: arrivalAirport, date: date, ticket: tickets};
                 };
 
                 return flights;
