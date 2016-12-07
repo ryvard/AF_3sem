@@ -26,6 +26,7 @@ angular.module('resultModule', [])
                         $http.get('http://localhost:8080/AF_3sem/api/flights/'
                                 + $scope.departAirport + '/' + $scope.date + '/' + $scope.tickets).then(function (response) {
                             $scope.airlineInfo = response.data;
+                            console.log($scope);
                         }, function (error) {
                         });
                     } else {
