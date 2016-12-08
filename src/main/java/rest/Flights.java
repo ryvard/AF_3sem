@@ -16,6 +16,7 @@ import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
@@ -111,6 +112,14 @@ public class Flights
             Logger.getLogger(Flights.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+    
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("reservation")
+    public void addReservation(String jsonString) {
+        
     }
 
     private String formatDate(Date date)

@@ -86,5 +86,11 @@ public class FlightsIntegrationTest {
         given().when().get("http://localhost:8084/AF_3sem/api/flights/BCN/2017-01-18/1").then()
                 .body("airline", equalTo("AngularJS Airline"));
     }
+    
+    @Test
+    public void addReservationStatus200() {
+        given().when().get("http://localhost:8080/AF_3sem/api/flights/reservation").then()
+                .statusCode(200);
+    }
 
 }
