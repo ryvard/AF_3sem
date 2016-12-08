@@ -3,7 +3,7 @@
     <div style="height: 109px; background-color: #181818;">
         <div style="float: left">
             <div style="margin-left: 100px; margin-top: 18px;">
-                <a href="#/"><img src="imageshomepage/logo fra photo.png" width="125"></a>
+                <a href="#/"><img ng-src="imageshomepage/logo fra photo.png" width="125"></a>
             </div>
         </div>
 
@@ -28,8 +28,8 @@
                    font-weight: 300" type="text" placeholder="Select date" ng-model="date">
             <input class="inputfield" style="margin-left: 20px; width: 100px; font-weight: 300" 
                    type="number" placeholder="Select number" ng-model="tickets">
-            <input class="orangeButton" style="margin-left: 24px;" type="submit" value="SEARCH" ng-click="getFlights()" >
-
+            <input class="orangeButton" style="margin-left: 24px;" type="submit" value="SEARCH" ng-click="addInputs(departAirport, arrivalAirport, date, tickets); getFlights()" >
+            
         </div>
     </div>
 
