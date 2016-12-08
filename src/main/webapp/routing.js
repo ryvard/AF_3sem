@@ -19,7 +19,8 @@ angular.module('routingModule', ['ngRoute', 'resultModule'])
                             controller: 'searchCntr'
                         })
                         .when('/confirm', {
-                            templateUrl: 'confirmationview/confirmationview.html'
+                            templateUrl: 'confirmationview/confirmationview.html',
+                            controller: 'searchCntr'
 
                         })
                         .otherwise({
