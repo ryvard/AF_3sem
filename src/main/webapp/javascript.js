@@ -5,11 +5,6 @@ angular.module('resultModule', [])
         .controller('searchCntr', ['$scope', '$http', 'flights', 'reserveInfo', 'flightInfo', function ($scope, $http, flights, reserveInfo, flightInfo) {
 
                 $scope.airlineInfo;
-//                $scope.departAirport;
-//                $scope.arrivalAirport;
-//                $scope.date;
-//                $scope.tickets;
-//                $scope.iataCodes;
                 $scope.departAirport = flights.flightInputs.depart;
                 $scope.arrivalAirport = flights.flightInputs.arrival;
                 $scope.date = flights.flightInputs.date;
@@ -20,11 +15,9 @@ angular.module('resultModule', [])
                 $scope.phone = reserveInfo.reserveInputs.phone;
                 $scope.flightInfo = flightInfo.flightInformation;
                 
-                 
                 $scope.getFlightInformation = function (info){
                    flightInfo.getFlightInfo(info);             
                 };
-                
                 
                 $scope.addReserveInformation = function (firstName, lastName, email, phone){
                     reserveInfo.addReserveInput(firstName, lastName, email, phone);
