@@ -22,72 +22,76 @@ import javax.persistence.Persistence;
  * @author emmablomsterberg
  */
 public class ReservationFacade {
-    
+
     EntityManagerFactory emf;
 
-    public ReservationFacade()
-    {
+    public ReservationFacade() {
         emf = Persistence.createEntityManagerFactory("PU_AFReserve");
     }
-    
-     public ReservationFacade(EntityManagerFactory emf) {
+
+    public ReservationFacade(EntityManagerFactory emf) {
         this.emf = emf;
     }
 
     private EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
-    
+
     public void setEmf(EntityManagerFactory emf) {
         this.emf = emf;
     }
 
     public boolean addReservation(
-            List<Reservation> reserve, 
-            FlightInstance flightInstance, 
-            List<Passenger> passengers, 
+            ArrayList<Reservation> reservations,
+            FlightInstance flightInstance,
+            List<Passenger> passengers,
             Airline airline,
-            Flight flight,
+            List<Flight> flights,
             Airport airport) {
-        
+
         EntityManager em = getEntityManager();
-        
+
         try {
             em.getTransaction().begin();
-            //flight.setAirport(airport);
-            //flight.setAirline(airline);
-            //flightInstance.setFlight(flight);
-            //flightInstance.setReserve(reserve);
+
+//            FlightInstance fI = new FlightInstance("test", "test", "test", "test", "test");
+            //em.persist(flightInstance);
+//            List<Reservation> reserve2 = new ArrayList();
+//            Reservation ikkeDetSamme = new Reservation("blavla");
+//            reserve2.add(ikkeDetSamme);
+//            fI.setReserve(reserve2);
+//            ikkeDetSamme.setFlightInstance(fI);
+//            reservation.setFlightInstance(flightInstance);
+//            em.persist(reservation);
+            for (Reservation r : reservations) {
+                for (Passenger p : passengers) {
+                    p.setReservation(r);
+                    
+                }
+                r.setPassengers(passengers);
+                r.setFlightInstance(flightInstance);
+            }
+            
+            flightInstance.setReserve(reservations);
             
             
+            for(Flight f : flights)
+            {
+                f.setAirline(airline);
+                f.setArivalAirport(airport);
+                flightInstance.setFlight(f);
+            }
+            airline.setFlights(flights);
+            airport.setFlights(flights);
             
-//            flight.setAirline(airline);
-//            flight.setAirport(airport);
-//       
-//            reserve.setFlightInstance(flightInstance);
-//            reserve.setPassengers(passengers);
             
-        FlightInstance fI = new FlightInstance("test", "test", "test", "test", "test");
             em.persist(flightInstance);
-        List<Reservation> reserve2 = new ArrayList();
-        Reservation ikkeDetSamme = new Reservation("204");
-        reserve2.add(ikkeDetSamme);
-        fI.setReserve(reserve2);
-        ikkeDetSamme.setFlightInstance(fI);
-//        List<Passenger> passengers = new ArrayList();
-//        passengers.add(new Passenger("mia", "ryvard"));
-//        Airline airline = new Airline("nameair");
-//        Flight flight = new Flight("flightnum", 2, "flight");
-//        Airport airport = new Airport("aiport1", "airport2", "airport3", "airport4", "airport5");
-//            em.persist(reserve2);
-            em.persist(ikkeDetSamme);
+
             em.getTransaction().commit();
             return true;
-            
+
         } finally {
             em.close();
         }
-        
     }
-
 }

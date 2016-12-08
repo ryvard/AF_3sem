@@ -14,24 +14,30 @@ import java.util.List;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author emmablomsterberg
  */
 public class Tester {
-    
+
     public static void main(String[] args) {
-         ReservationFacade rf = new ReservationFacade();
-        List<Reservation> reserve = new ArrayList();
-        reserve.add(new Reservation("204"));
+        ReservationFacade rf = new ReservationFacade();
+
+        ArrayList<Reservation> reservation = new ArrayList<Reservation>();
+        reservation.add(new Reservation("reserv"));
+
         FlightInstance fI = new FlightInstance("test", "test", "test", "test", "test");
+
         List<Passenger> passengers = new ArrayList();
         passengers.add(new Passenger("mia", "ryvard"));
+
         Airline airline = new Airline("nameair");
-        Flight flight = new Flight("flightnum", 2, "flight");
-        Airport airport = new Airport("aiport1", "airport2", "airport3", "airport4", "airport5");
+
+        ArrayList<Flight> flights = new ArrayList();
+        flights.add(new Flight("flightnum", 2, "flight"));
         
-        rf.addReservation(reserve, fI, passengers, airline, flight, airport);
+        Airport airport = new Airport("aiport1", "airport2", "airport3", "airport4", "airport5");
+
+        rf.addReservation(reservation, fI, passengers, airline, flights, airport);
     }
 }

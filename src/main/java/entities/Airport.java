@@ -16,8 +16,7 @@ import javax.persistence.OneToMany;
  * @author miaryvard
  */
 @Entity
-
-public class Airport extends Flight
+public class Airport// extends Flight
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,17 +28,17 @@ public class Airport extends Flight
     private String city;
     
     
-  //  @OneToMany
-    @OneToMany(mappedBy = "airport", cascade = CascadeType.PERSIST)
-    private List<Flight> fligths = new ArrayList();
+    @OneToMany(mappedBy = "arivalAirport")
+    private List<Flight> flights;
     
+
+  
     public Airport()
     {
     }
     
     public Airport(String IATACode, String timezone, String name, String country, String city)
     {
-      //  this.id = id;
         this.IATACode = IATACode;
         this.timezone = timezone;
         this.name = name;
@@ -107,13 +106,15 @@ public class Airport extends Flight
         this.city = city;
     }
 
-    public List<Flight> getFligths() {
-        return fligths;
+    public List<Flight> getFlights() {
+        return flights;
     }
 
-    public void setFligths(List<Flight> fligths) {
-        this.fligths = fligths;
+    public void setFlights(List<Flight> flights) {
+        this.flights = flights;
     }
+
+    
     
     
     

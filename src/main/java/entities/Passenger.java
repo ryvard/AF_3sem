@@ -14,7 +14,6 @@ import javax.persistence.ManyToOne;
  * @author miaryvard
  */
 @Entity
-
 public class Passenger
 {
     @Id
@@ -23,10 +22,9 @@ public class Passenger
     private String firstName;
     private String lastName;
     
-   
-    //@ManyToOne
-    @ManyToOne
-    private Reservation reserves;
+
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    private Reservation reservation;
     
     public Passenger()
     {
@@ -69,12 +67,12 @@ public class Passenger
         this.lastName = lastName;
     }
 
-    public Reservation getReserves() {
-        return reserves;
+    public Reservation getReservation() {
+        return reservation;
     }
 
-    public void setReserves(Reservation reserves) {
-        this.reserves = reserves;
+    public void setReservation(Reservation reservation) {
+        this.reservation = reservation;
     }
 
     

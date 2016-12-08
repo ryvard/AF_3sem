@@ -11,57 +11,51 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 
-
 /**
  *
  * @author miaryvard
  */
 @Entity
+public class Airline{
 
-public class Airline extends Flight
-{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    
     private String name;
     
     
-    
-   // @OneToMany
-    @OneToMany(mappedBy = "airline", cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "airline")
     private List<Flight> flights;
-    
 
-    public Airline()
-    {
-        this.flights = new ArrayList();
+//    
+//    
+//   // @OneToMany
+//    @OneToMany(mappedBy = "airline", cascade = CascadeType.PERSIST)
+//    private List<Flight> flights;
+//    
+    public Airline() {
+//        this.flights = new ArrayList();
     }
 
-    public Airline(String name)
-    {
-        this.flights = new ArrayList();
-       // this.id = id;
+    public Airline(String name) {
+//        this.flights = new ArrayList();
+        // this.id = id;
         this.name = name;
     }
 
-    public long getId()
-    {
+    public long getId() {
         return id;
     }
 
-    public void setId(long id)
-    {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public String getName()
-    {
+    public String getName() {
         return name;
     }
 
-    public void setName(String name)
-    {
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -72,7 +66,5 @@ public class Airline extends Flight
     public void setFlights(List<Flight> flights) {
         this.flights = flights;
     }
-    
-    
-    
+
 }

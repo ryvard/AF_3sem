@@ -24,13 +24,11 @@ public class Reservation
     private long id;
     private String totalPrice;    
     
-   
-    //@OneToMany
-    @OneToMany(mappedBy = "reserves", cascade = CascadeType.PERSIST)
-    private List<Passenger> passengers = new ArrayList();
-    
     @ManyToOne(cascade = CascadeType.PERSIST)
     private FlightInstance flightInstance;
+    
+    @OneToMany(mappedBy = "reservation", cascade = CascadeType.PERSIST)
+    private List<Passenger> passengers;
     
     public Reservation()
     {
@@ -38,7 +36,6 @@ public class Reservation
 
     public Reservation(String totalPrice)
     {
-//        this.id = id;
         this.totalPrice = totalPrice;
     }
     

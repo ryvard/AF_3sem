@@ -15,8 +15,7 @@ import javax.persistence.OneToMany;
  * @author miaryvard
  */
 @Entity
-
-public class FlightInstance extends Flight
+public class FlightInstance //extends Flight
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,15 +26,14 @@ public class FlightInstance extends Flight
     private String availebleSeats;
     private String price;
     
-   
-    @ManyToOne
-    private Flight flight;
-    
-    
 
-    //@OneToMany
-    @OneToMany(mappedBy = "flightInstance")
-    private List<Reservation> reserve = new ArrayList();
+      
+    @OneToMany(mappedBy = "flightInstance",cascade = CascadeType.PERSIST)
+    private List<Reservation> reservation = new ArrayList();
+    
+    
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    private Flight flight;
 
     public FlightInstance()
     {
@@ -43,7 +41,6 @@ public class FlightInstance extends Flight
 
     public FlightInstance(String flightId, String date, String time, String availebleSeats, String price)
     {
-      //  this.id = id;
         this.flightId = flightId;
         this.date = date;
         this.time = time;
@@ -120,11 +117,11 @@ public class FlightInstance extends Flight
     }
 
     public List<Reservation> getReserve() {
-        return reserve;
+        return reservation;
     }
 
-    public void setReserve(List<Reservation> reserve) {
-        this.reserve = reserve;
+    public void setReserve(List<Reservation> reservation) {
+        this.reservation = reservation;
     }
     
     

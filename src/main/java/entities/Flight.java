@@ -17,8 +17,10 @@ import javax.persistence.OneToMany;
  *
  * @author miaryvard
  */
+
+//@Inheritance(strategy = InheritanceType.JOINED)
+// joined skal under entity 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
 public class Flight
 {
     @Id
@@ -29,20 +31,17 @@ public class Flight
     private int seats;
     private String flightTime;
     
-   
-   // @ManyToOne
-    @ManyToOne
+    
+    @OneToMany(mappedBy = "flight")
+    private List<FlightInstance> flightInstances;
+
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Airline airline;
     
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    private Airport arivalAirport;
     
-   // @ManyToOne
-    @ManyToOne
-    private Airport airport;
     
-   
-   // @OneToMany
-    @OneToMany(mappedBy = "flight", cascade = CascadeType.PERSIST)
-    private List<FlightInstance> flInstance = new ArrayList();
     
     public Flight()
     {
@@ -50,7 +49,6 @@ public class Flight
     
     public Flight(String flightNumber, int seats, String flightTime)
     {
-       // this.id = id;
         this.flightNumber = flightNumber;
         this.seats = seats;
         this.flightTime = flightTime;
@@ -104,21 +102,25 @@ public class Flight
         this.airline = airline;
     }
 
-    public Airport getAirport() {
-        return airport;
+    public List<FlightInstance> getFlightInstances()
+    {
+        return flightInstances;
     }
 
-    public void setAirport(Airport airport) {
-        this.airport = airport;
+    public void setFlightInstances(List<FlightInstance> flightInstances)
+    {
+        this.flightInstances = flightInstances;
     }
 
-    public List<FlightInstance> getFlInstance() {
-        return flInstance;
+    public Airport getArivalAirport() {
+        return arivalAirport;
     }
 
-    public void setFlInstance(List<FlightInstance> flInstance) {
-        this.flInstance = flInstance;
+    public void setArivalAirport(Airport arivalAirport) {
+        this.arivalAirport = arivalAirport;
     }
+
+    
     
     
 }
