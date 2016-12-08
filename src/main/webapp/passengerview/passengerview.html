@@ -26,7 +26,7 @@
                font-weight: 300" type="text" placeholder="Select date" ng-model="date">
         <input class="inputfield" style="margin-left: 20px; width: 100px; font-weight: 300" 
                type="number" placeholder="Select number" ng-model="tickets">
-        <input class="orangeButton" style="margin-left: 24px;" type="submit" value="SEARCH" ng-click="getFlights()" >
+        <a href="#search"><input class="orangeButton" style="margin-left: 24px;" type="submit" value="SEARCH" ng-click="addFlightInputs(departAirport, arrivalAirport, date, tickets); getFlights()" ></a>
 
     </div>
 </div>
@@ -40,12 +40,12 @@
             </div>
 
             <div class="textLato" style="color: #474747; font-family: 'Lato', sans-serif; margin-top: 40px; margin-left: 25px; font-size: 12px;">
-                <div style="float:left; height:31px; padding-top: 7px;">First name </div><div style="padding-left: 20px; float: left;"><input class='inputfieldPass' style="height: 25px; width: 200px;" type="text"></div>
-                <div style="margin-left: 30px; float:left; height:31px; padding-top: 7px;">Last name </div><div style="padding-left: 20px; float: left;"><input class='inputfieldPass' style="height: 25px; width: 200px;" type="text"></div>
+                <div style="float:left; height:31px; padding-top: 7px;">First name </div><div style="padding-left: 20px; float: left;"><input class='inputfieldPass' style="height: 25px; width: 200px;" type="text" ng-model="firstName"></div>
+                <div style="margin-left: 30px; float:left; height:31px; padding-top: 7px;">Last name </div><div style="padding-left: 20px; float: left;"><input class='inputfieldPass' style="height: 25px; width: 200px;" type="text" ng-model="lastName"></div>
             </div>
             <div class="textLato" style="color: #474747; font-family: 'Lato', sans-serif; margin-top: 100px; margin-left: 25px; font-size: 12px;">
-                <div style="float:left; height:31px; padding-top: 7px;">Email </div><div style="padding-left: 47px; float: left;"><input class='inputfieldPass' style="height: 25px; width: 200px;" type="text"></div>
-                <div style="margin-left: 30px; float:left; height:31px; padding-top: 7px;">Phone </div><div style="padding-left: 40px; float: left;"><input class='inputfieldPass' style="height: 25px; width: 200px;" type="text"></div>
+                <div style="float:left; height:31px; padding-top: 7px;">Email </div><div style="padding-left: 47px; float: left;"><input class='inputfieldPass' style="height: 25px; width: 200px;" type="text" ng-model="email"></div>
+                <div style="margin-left: 30px; float:left; height:31px; padding-top: 7px;">Phone </div><div style="padding-left: 40px; float: left;"><input class='inputfieldPass' style="height: 25px; width: 200px;" type="text" ng-model="phone"></div>
             </div>
             <div class="textLato" style="font-family: 'Lato', sans-serif; margin-left: 25px; margin-right: 25px; padding-top: 80px; padding-bottom: 30px; border-bottom: 1px dotted; border-bottom-color: #898787; font-weight: 900; color: #E80000; text-transform: uppercase;">
                 Passenger details
@@ -57,7 +57,7 @@
                 <div id="body-content" style="float: left; margin-left: 25px; width: 35px; padding: 7px; font-weight: 500;">{{1}}</div><div style="float: left;"><input style="width: 230px; height: 25px;" type="text"></div><div style="float:left; padding-left: 20px;"><input style="width: 230px; height: 25px;" type="text"></div>  
             </div>
             <div style="margin-left: 460px; padding-top: 20px;">
-                <a href="#confirm"><input class="orangeButton" type="submit" value="SAVE"></a></div>
+                <!--<a href="#confirm">--><input class="orangeButton" type="submit" value="SAVE" ng-click="addReserveInformation(firstName, lastName, email, phone)"><!--</a>--></div>
         </div>
 
         <div style="float: left; margin-left: 20px; margin-top: 35px;">
@@ -69,27 +69,27 @@
             <table style="padding-top: 10px; background-color: white; border-color: white;">
                 <tr class="textForm">
                     <td style="width: 200px; border-top-color: white;">flight no</td>
-                    <td style="font-weight: bold; border-top-color: white;">{{test}}</td>
+                    <td style="font-weight: bold; border-top-color: white;">{{flightInfo.flightID}}</td>
                 </tr>
                 <tr class="textForm">
                     <td style="border-top-color: white;">origin</td>
-                    <td style="font-weight: bold;border-top-color: white;">{{departAirport}}</td>
+                    <td style="font-weight: bold;border-top-color: white;">{{flightInfo.origin}}</td>
                 </tr>
                 <tr class="textForm">
                     <td style="border-top-color: white;">destination</td>
-                    <td style="font-weight: bold; border-top-color: white;">ifn</td>
+                    <td style="font-weight: bold; border-top-color: white;">{{flightInfo.destination}}</td>
                 </tr>
                 <tr class="textForm">
                     <td style="border-top-color: white;">date</td>
-                    <td style="font-weight: bold; border-top-color: white;">infoinfo</td>
+                    <td style="font-weight: bold; border-top-color: white;">{{flightInfo.date}}</td>
                 </tr>
                 <tr class="textForm">
                     <td style="border-top-color: white;">flight time</td>
-                    <td style="font-weight: bold; border-top-color: white;">info</td>
+                    <td style="font-weight: bold; border-top-color: white;">{{flightInfo.traveltime}} Minutes</td>
                 </tr>
                 <tr class="textForm">
                     <td style="border-top-color: white;" >number of seats</td>
-                    <td style="font-weight: bold; border-top-color: white;">info</td>
+                    <td style="font-weight: bold; border-top-color: white;">{{flightInfo.numberOfSeats}}</td>
                 </tr>
             </table>
         </div>
