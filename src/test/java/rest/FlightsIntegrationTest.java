@@ -88,20 +88,21 @@ public class FlightsIntegrationTest {
     }
     
     @Test
-    public void addReservationStatus200() {
-        given().when().get("http://localhost:8084/AF_3sem/api/flights/reservation").then()
-                .statusCode(200);
+    public void addReservationFAILNoBodyContent() {
+        given().contentType("application/json")
+                .when().post("http://localhost:8084/AF_3sem/api/flights/reservation")
+                .then().statusCode(500);
     }
     
     @Test
-    public void addReservationAssertTrue() {
+    public void addReservationExpSuccess204() {
         
         String json = "{\"airline\":\"Adventure flights\","
                 + "\"flightID\":\"100\","
                 + "\"flightNumber\":\"100\","
                 + "\"origin\":\"CPH\","
                 + "\"date\":\"18-02-2017\","
-                + "\"traveltime\":\"1\","
+                + "\"travelTime\":\"1\","
                 + "\"flightTime\":\"20.00\","
                 + "\"seats\":3,"
                 + "\"totalPrice\":\"200\","
@@ -109,8 +110,27 @@ public class FlightsIntegrationTest {
                 + "\"lastName\":\"Blomsterberg\"}";
         
         given().contentType("application/json").body(json)
-                .when().post("/api/flights/reservation")
-                .then().statusCode(200);
+                .when().post("http://localhost:8084/AF_3sem/api/flights/reservation")
+                .then().statusCode(204);
     }
-
+    @Test
+    public void addReservationExpFailInJSON() {
+        
+        String json = "{\"airline\":\"Adventure flights\","
+                + "\"flightID\":\"100\","
+                + "\"flightNumber\":\"100\","
+                + "\"origin\":\"CPH\","
+                + "\"date\":\"18-02-2017\","
+                + "\"travelTime\":\"1\","
+                + "\"flightTime\":\"20.00\","
+                + "\"seats\":3,"
+                + "\"totalPrice\":\"200\","
+                + "\"firstName\":\"Emma\","
+                + "\"FAILlastName\":\"Blomsterberg\"}";
+        
+        given().contentType("application/json").body(json)
+                .when().post("http://localhost:8084/AF_3sem/api/flights/reservation")
+                .then().statusCode(500);
+    }
+    
 }

@@ -31,7 +31,9 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import org.json.JSONObject;
+import restException.httpException;
 
 @Path("flights")
 public class Flights {
@@ -119,30 +121,47 @@ public class Flights {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("reservation")
-    public boolean addReservation(String jsonString) {
+    public void addReservation(String jsonString) {
         try {
+            
+            System.out.println("START ADD RESERVATION");
             JsonObject json = new JsonParser().parse(jsonString).getAsJsonObject();
-
+            System.out.println("TEEEEST*** 1 ");
             
             String airline = json.get("airline").getAsString();
-            
+            System.out.println("TEEEEST*** 2 " + airline);
             String flightID = json.get("flightID").getAsString();
+            System.out.println("TEEEEST*** 3 " + flightID);
             String flightNumber = json.get("flightNumber").getAsString();
             String origin = json.get("origin").getAsString();
+            System.out.println("TEEEEST*** 4 " + flightNumber + " + " + origin);
+            
             String date = json.get("date").getAsString();
+            System.out.println("TEEEEST*** 5.1 "+date );
+            
             String traveltime = json.get("travelTime").getAsString();
+            System.out.println("TEEEEST*** 5.2 "+traveltime ); 
+            
             String flightTime = json.get("flightTime").getAsString();
+            System.out.println("TEEEEST*** 5.3 "+flightTime);
+            
             int seats = json.get("seats").getAsInt();
+            
+           
+            System.out.println("TEEEEST*** 6 : INT"+seats);
             String totalPrice = json.get("totalPrice").getAsString();
-
+            
             String firstName = json.get("firstName").getAsString();
+            
             String lastName = json.get("lastName").getAsString();
             
             String availebleSeats = "100";
             String timeZone = "CET", country = "country", city = "city";
 
             
-
+            System.out.println("@@@@@@@@@@@@@@@ -- firstName" + firstName);
+            
+            
             ArrayList<Reservation> reservation = new ArrayList<Reservation>();
             reservation.add(new Reservation(totalPrice));
 
@@ -157,12 +176,15 @@ public class Flights {
             flights.add(new Flight(flightNumber, seats, flightTime));
 
             Airport airport = new Airport(origin, timeZone, origin, country, city);
+            
+            System.out.println("EFTER SHITTET");
 
             rf.addReservation(reservation, flightInstance, passengers, airliner, flights, airport);
-
-            return true;
+            System.out.println("HEJ IGEN");
+            
         } catch (Exception ex) {
-            return false;
+            System.out.println("FAAAIL :  "+ ex);
+            throw ex;
         }
     }
 
