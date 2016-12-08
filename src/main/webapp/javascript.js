@@ -2,34 +2,39 @@
 'use strict';
 angular.module('resultModule', [])
 
-        .controller('searchCntr', ['$scope', '$http', 'flights', 'reserveInfo', function ($scope, $http, flights, reserveInfo) {
+        .controller('searchCntr', ['$scope', '$http', 'flights', 'reserveInfo', 'flightInfo', function ($scope, $http, flights, reserveInfo, flightInfo) {
 
                 $scope.airlineInfo;
                 $scope.departAirport;
                 $scope.arrivalAirport;
                 $scope.date;
                 $scope.tickets;
-                $scope.flightInfo;
                 $scope.iataCodes;
                 $scope.firstName;
                 $scope.lastName;
                 $scope.email;
-                $scope.phone; 
-                $scope.departAirport = flights.inputs.depart;
-                $scope.arrivalAirport = flights.inputs.arrival;
-                $scope.date = flights.inputs.date;
-                $scope.tickets = flights.inputs.ticket;
+                $scope.phone;
+                $scope.departAirport = flights.flightInputs.depart;
+                $scope.arrivalAirport = flights.flightInputs.arrival;
+                $scope.date = flights.flightInputs.date;
+                $scope.tickets = flights.flightInputs.ticket;
                 $scope.firstName = reserveInfo.reserveInputs.firstName;
                 $scope.lastName = reserveInfo.reserveInputs.lastName;
                 $scope.email = reserveInfo.reserveInputs.email;
                 $scope.phone = reserveInfo.reserveInputs.phone;
                 
+                $scope.getFlightInformation = function (info){
+                   flightInfo.getFlightInfo(info);
+                   console.log(info);
+                };
+                
                 $scope.addReserveInformation = function (firstName, lastName, email, phone){
                     reserveInfo.addReserveInput(firstName, lastName, email, phone);
+                    console.log(reserveInfo.reserveInputs.firstName);
                 };
 
-                $scope.addInputs = function (departAirport, arrivalAirport, date, tickets) {
-                    flights.addInput(departAirport, arrivalAirport, date, tickets);
+                $scope.addFlightInputs = function (departAirport, arrivalAirport, date, tickets) {
+                    flights.addFlightInput(departAirport, arrivalAirport, date, tickets);
                 };
 
                 $scope.getFlights = function () {
@@ -56,10 +61,10 @@ angular.module('resultModule', [])
         .factory('flights', [function () {
                 var flights = {};
 
-                flights.inputs = {};
+                flights.flightInputs = {};
 
-                flights.addInput = function (departAirport, arrivalAirport, date, tickets) {
-                    flights.inputs = {depart: departAirport, arrival: arrivalAirport, date: date, ticket: tickets};
+                flights.addFlightInput = function (departAirport, arrivalAirport, date, tickets) {
+                    flights.flightInputs = {depart: departAirport, arrival: arrivalAirport, date: date, ticket: tickets};
                 };
 
                 return flights;
@@ -75,6 +80,18 @@ angular.module('resultModule', [])
                     };
 
                             return reserveInfo;
+                }])
+            
+        .factory('flightInfo', [function(){
+                var flightInfo = {};
+        
+       flightInfo.getFlightInfo = function (info){
+           flightInfo.flightInformation = info;
+           
+       };
+        
+        return flightInfo;
+        
                 }])
 
             .filter('durationFilter', function () {

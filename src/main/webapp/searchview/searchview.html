@@ -28,7 +28,7 @@
                    font-weight: 300" type="text" placeholder="Select date" ng-model="date">
             <input class="inputfield" style="margin-left: 20px; width: 100px; font-weight: 300" 
                    type="number" placeholder="Select number" ng-model="tickets">
-            <input class="orangeButton" style="margin-left: 24px;" type="submit" value="SEARCH" ng-click="addInputs(departAirport, arrivalAirport, date, tickets); getFlights()" >
+            <input class="orangeButton" style="margin-left: 24px;" type="submit" value="SEARCH" ng-click="addFlightInputs(departAirport, arrivalAirport, date, tickets); getFlights()" >
             
         </div>
     </div>
@@ -72,7 +72,7 @@
                 <td>{{info.date| date:'HH:mm':'UTC+0' | arivalFilter:info.traveltime}}</td>
                 <td>{{info.destination}}</td>
                 <td style="color: #E80000; font-size: 14px;">{{info.totalPrice| currency : "DKK"}}</td>
-                <td style="padding-left: 20px; padding-right: 20px;"><a href="#reserve"><button class="orangeButton" style="padding-left: 20px; padding-right: 20px;">RESERVATION</button></a></td>
+                <td style="padding-left: 20px; padding-right: 20px;"><a href="#reserve" ng-click="getFlightInformation(airlineInfo.flights)"><button class="orangeButton" style="padding-left: 20px; padding-right: 20px;">RESERVATION</button></a></td>
             </tr>
 
 
