@@ -5,15 +5,11 @@ angular.module('resultModule', [])
         .controller('searchCntr', ['$scope', '$http', 'flights', 'reserveInfo', 'flightInfo', function ($scope, $http, flights, reserveInfo, flightInfo) {
 
                 $scope.airlineInfo;
-                $scope.departAirport;
-                $scope.arrivalAirport;
-                $scope.date;
-                $scope.tickets;
-                $scope.iataCodes;
-                $scope.firstName;
-                $scope.lastName;
-                $scope.email;
-                $scope.phone;
+//                $scope.departAirport;
+//                $scope.arrivalAirport;
+//                $scope.date;
+//                $scope.tickets;
+//                $scope.iataCodes;
                 $scope.departAirport = flights.flightInputs.depart;
                 $scope.arrivalAirport = flights.flightInputs.arrival;
                 $scope.date = flights.flightInputs.date;
