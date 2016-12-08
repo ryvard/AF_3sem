@@ -89,8 +89,28 @@ public class FlightsIntegrationTest {
     
     @Test
     public void addReservationStatus200() {
-        given().when().get("http://localhost:8080/AF_3sem/api/flights/reservation").then()
+        given().when().get("http://localhost:8084/AF_3sem/api/flights/reservation").then()
                 .statusCode(200);
+    }
+    
+    @Test
+    public void addReservationAssertTrue() {
+        
+        String json = "{\"airline\":\"Adventure flights\","
+                + "\"flightID\":\"100\","
+                + "\"flightNumber\":\"100\","
+                + "\"origin\":\"CPH\","
+                + "\"date\":\"18-02-2017\","
+                + "\"traveltime\":\"1\","
+                + "\"flightTime\":\"20.00\","
+                + "\"seats\":3,"
+                + "\"totalPrice\":\"200\","
+                + "\"firstName\":\"Emma\","
+                + "\"lastName\":\"Blomsterberg\"}";
+        
+        given().contentType("application/json").body(json)
+                .when().post("/api/flights/reservation")
+                .then().statusCode(200);
     }
 
 }
