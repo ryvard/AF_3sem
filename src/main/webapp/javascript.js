@@ -45,6 +45,32 @@ angular.module('resultModule', [])
                     ;
                 };
                 $scope.getFlights();
+                
+//                var reservationDetails = {
+//                    airline: flightInfo.flightID
+//                    flightID: flightInfo.flightID,
+//                    flightNumber: flightInfo.flightNumber,
+//                    origin: flightInfo.flightInformation.origin,
+//                    date: flightInfo.flightInformation.date,
+//                    seats: flightInfo.flightInformation.seats,
+//                    totalPrice: flightInfo.flightInformation.totalPrice,
+//                    firstName: reserveInfo.reserveInputs.firstName,
+//                    lastName: reserveInfo.reserveInputs.lastName
+//                };
+//                
+//                $scope.postReserveInfo = function () {
+//                    $http.post('http://localhost:8080/AF_3Sem/api/flights/reservation/', reservationDetails).succes(function(data){
+//                        $scope.something = data;
+//                        console.log(reservationDetails);
+//                        console.log(data);
+//                        console.log(something);
+//                    }.error(function(data){
+//                        $scope.something = data;
+//                        console.log(reservationDetails);
+//                        console.log(data);
+//                        console.log(something);
+//                    }));
+//                    };
             }])
 
         .factory('flights', [function () {
