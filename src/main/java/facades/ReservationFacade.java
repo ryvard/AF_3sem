@@ -54,42 +54,29 @@ public class ReservationFacade {
         try {
             em.getTransaction().begin();
 
-//            FlightInstance fI = new FlightInstance("test", "test", "test", "test", "test");
-            //em.persist(flightInstance);
-//            List<Reservation> reserve2 = new ArrayList();
-//            Reservation ikkeDetSamme = new Reservation("blavla");
-//            reserve2.add(ikkeDetSamme);
-//            fI.setReserve(reserve2);
-//            ikkeDetSamme.setFlightInstance(fI);
-//            reservation.setFlightInstance(flightInstance);
-//            em.persist(reservation);
             for (Reservation r : reservations) {
                 for (Passenger p : passengers) {
                     p.setReservation(r);
-                    
                 }
                 r.setPassengers(passengers);
                 r.setFlightInstance(flightInstance);
             }
-            
             flightInstance.setReserve(reservations);
-            
-            
-            for(Flight f : flights)
-            {
+
+            for (Flight f : flights) {
                 f.setAirline(airline);
                 f.setArivalAirport(airport);
                 flightInstance.setFlight(f);
             }
             airline.setFlights(flights);
             airport.setFlights(flights);
-            
-            
-            em.persist(flightInstance);
 
+            em.persist(flightInstance);
             em.getTransaction().commit();
             return true;
 
+        } catch (Exception ex) {
+            return false;
         } finally {
             em.close();
         }
