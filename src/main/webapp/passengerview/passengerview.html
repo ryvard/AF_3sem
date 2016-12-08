@@ -26,7 +26,7 @@
                font-weight: 300" type="text" placeholder="Select date" ng-model="date">
         <input class="inputfield" style="margin-left: 20px; width: 100px; font-weight: 300" 
                type="number" placeholder="Select number" ng-model="tickets">
-        <a href="#search"><input class="orangeButton" style="margin-left: 24px;" type="submit" value="SEARCH" ng-click="addInputs(departAirport, arrivalAirport, date, tickets); getFlights()" ></a>
+        <a href="#search"><input class="orangeButton" style="margin-left: 24px;" type="submit" value="SEARCH" ng-click="addFlightInputs(departAirport, arrivalAirport, date, tickets); getFlights()" ></a>
 
     </div>
 </div>
@@ -69,27 +69,27 @@
             <table style="padding-top: 10px; background-color: white; border-color: white;">
                 <tr class="textForm">
                     <td style="width: 200px; border-top-color: white;">flight no</td>
-                    <td style="font-weight: bold; border-top-color: white;">{{test}}</td>
+                    <td style="font-weight: bold; border-top-color: white;">{{flightInfo.flightID}}</td>
                 </tr>
                 <tr class="textForm">
                     <td style="border-top-color: white;">origin</td>
-                    <td style="font-weight: bold;border-top-color: white;">{{departAirport}}</td>
+                    <td style="font-weight: bold;border-top-color: white;">{{flightInfo.origin}}</td>
                 </tr>
                 <tr class="textForm">
                     <td style="border-top-color: white;">destination</td>
-                    <td style="font-weight: bold; border-top-color: white;">ifn</td>
+                    <td style="font-weight: bold; border-top-color: white;">{{flightInfo.destination}}</td>
                 </tr>
                 <tr class="textForm">
                     <td style="border-top-color: white;">date</td>
-                    <td style="font-weight: bold; border-top-color: white;">infoinfo</td>
+                    <td style="font-weight: bold; border-top-color: white;">{{flightInfo.date}}</td>
                 </tr>
                 <tr class="textForm">
                     <td style="border-top-color: white;">flight time</td>
-                    <td style="font-weight: bold; border-top-color: white;">info</td>
+                    <td style="font-weight: bold; border-top-color: white;">{{flightInfo.traveltime}} Minutes</td>
                 </tr>
                 <tr class="textForm">
                     <td style="border-top-color: white;" >number of seats</td>
-                    <td style="font-weight: bold; border-top-color: white;">info</td>
+                    <td style="font-weight: bold; border-top-color: white;">{{flightInfo.numberOfSeats}}</td>
                 </tr>
             </table>
         </div>

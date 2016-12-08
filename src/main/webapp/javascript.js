@@ -22,15 +22,16 @@ angular.module('resultModule', [])
                 $scope.lastName = reserveInfo.reserveInputs.lastName;
                 $scope.email = reserveInfo.reserveInputs.email;
                 $scope.phone = reserveInfo.reserveInputs.phone;
+                $scope.flightInfo = flightInfo.flightInformation;
                 
+                 
                 $scope.getFlightInformation = function (info){
-                   flightInfo.getFlightInfo(info);
-                   console.log(info);
+                   flightInfo.getFlightInfo(info);             
                 };
+                
                 
                 $scope.addReserveInformation = function (firstName, lastName, email, phone){
                     reserveInfo.addReserveInput(firstName, lastName, email, phone);
-                    console.log(reserveInfo.reserveInputs.firstName);
                 };
 
                 $scope.addFlightInputs = function (departAirport, arrivalAirport, date, tickets) {
@@ -43,7 +44,6 @@ angular.module('resultModule', [])
                         $http.get('http://localhost:8080/AF_3sem/api/flights/'
                                 + $scope.departAirport + '/' + $scope.date + '/' + $scope.tickets).then(function (response) {
                             $scope.airlineInfo = response.data;
-                            console.log($scope);
                         }, function (error) {
                         });
                     } else {
@@ -87,7 +87,7 @@ angular.module('resultModule', [])
         
        flightInfo.getFlightInfo = function (info){
            flightInfo.flightInformation = info;
-           
+        
        };
         
         return flightInfo;
